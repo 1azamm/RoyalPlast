@@ -110,6 +110,7 @@ const Page1 = () => {
           <ButtonContainer className="flex gap-x-6 pt-20">
             <Link to="/more-info/">
               <Button
+                id="btn3"
                 onClick={() => window.scrollTo({ top: 0, behavior: "auto" })}
                 text={language === "uz" ? "Batafsil" : "Более"}
                 position={
@@ -118,11 +119,11 @@ const Page1 = () => {
               />
             </Link>
             <Button
+              id="btn3"
               text={"Murojaat"}
               position="bg-transparent rounded-none hover:text-white"
               onClick={handleClick}
             />
-            <Write text={"Murojaat"} modal={toggle} setModal={setToogle} />
           </ButtonContainer>
 
           <InfoContainer className="Info flex justify-between flex-wrap gap-y-5 pt-10">
@@ -148,6 +149,7 @@ const Page1 = () => {
           </PlayContainer>
         </div>
         <IMG src={img1} alt="" className="w-[50%]" />
+        <Write text={"Murojaat"} modal={toggle} setModal={setToogle} />
       </Container>
     </>
   );
@@ -242,13 +244,6 @@ const ButtonContainer = styled.div`
   }
   @media only screen and (max-width: 1000px) {
     padding-top: 10px;
-  }
-  @media only screen and (max-width: 550px) {
-    position: relative;
-    left: 15px;
-  }
-  @media only screen and (max-width: 430px) {
-    left: 13px;
   }
 `;
 

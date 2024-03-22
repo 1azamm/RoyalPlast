@@ -106,11 +106,6 @@ const HomeAccess = () => {
               text={"Distribyutorga aylaning"}
               position="text-[16px] bg-transparent rounded-none hover:text-white"
             />
-            <Write
-              text={"Distribyutorga aylaning"}
-              modal={toggle}
-              setModal={setToogle}
-            />
           </div>
         </div>
         <IMG
@@ -145,6 +140,11 @@ const HomeAccess = () => {
           ))}
         </ul>
       </div>
+      <Write
+        text={"Distribyutorga aylaning"}
+        modal={toggle}
+        setModal={setToogle}
+      />
     </div>
   );
 };

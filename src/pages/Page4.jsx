@@ -35,7 +35,7 @@ const Page4 = () => {
       <div className="flex justify-between flex-wrap">
         <Content className="w-[49%]">
           {/* <Fade left> */}
-          <div className="flex flex-col gap-y-10 border border-black p-10">
+          <DIV className="flex flex-col gap-y-10 border border-black p-10">
             <h1 className="text-center text-[#2c679f] text-2xl font-semibold">
               Uyali
             </h1>
@@ -55,12 +55,12 @@ const Page4 = () => {
                 }
               />
             </div>
-          </div>
+          </DIV>
           {/* </Fade> */}
         </Content>
         <Content2 className="w-[49%]">
           {/* <Fade right> */}
-          <div className="flex flex-col gap-y-10 border border-black p-10 ">
+          <DIV className="flex flex-col gap-y-10 border border-black p-10 ">
             <h1 className="text-center text-[#2c679f] text-2xl font-semibold">
               Monolit
             </h1>
@@ -80,7 +80,7 @@ const Page4 = () => {
                 }
               />
             </div>
-          </div>
+          </DIV>
           {/* </Fade> */}
         </Content2>
       </div>
@@ -125,5 +125,11 @@ const ImgContainer2 = styled.div`
 const IMG = styled.img`
   @media only screen and (max-width: 412px) {
     width: 70px;
+  }
+`;
+
+const DIV = styled.div`
+  @media only screen and (max-width: 390px) {
+    padding: 20px;
   }
 `;

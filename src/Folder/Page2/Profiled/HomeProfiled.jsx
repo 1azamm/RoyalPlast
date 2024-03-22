@@ -129,11 +129,6 @@ const HomeProfiled = () => {
               text={"Distribyutorga aylaning"}
               position="text-[16px] bg-transparent rounded-none hover:text-white"
             />
-            <Write
-              text={"Distribyutorga aylaning"}
-              modal={toggle}
-              setModal={setToogle}
-            />
           </div>
         </div>
         <IMG src={img} width="33%" alt="" />
@@ -168,6 +163,11 @@ const HomeProfiled = () => {
           ))}
         </ul>
       </div>
+      <Write
+        text={"Distribyutorga aylaning"}
+        modal={toggle}
+        setModal={setToogle}
+      />
     </div>
   );
 };

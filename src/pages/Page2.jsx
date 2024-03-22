@@ -178,6 +178,10 @@ const BackgroundDiv = styled.div`
     width: 400px !important;
     height: 270px !important;
   }
+  @media only screen and (max-width: 412px) {
+    width: 370px !important;
+    height: 270px !important;
+  }
 `;
 
 const ContentContainer = styled.div`
