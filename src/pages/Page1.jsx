@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import Button from "../utils/Button";
 import styled from "styled-components";
 import { LocalizationApi } from "../Context/Language";
@@ -88,7 +88,7 @@ const Page1 = () => {
 
   return (
     <>
-      <div id="page1" className="flex bg">
+      <Container id="page1" className="flex bg">
         <div className="text w-[50%] pl-5 pr-5">
           <FirstText className="flex items-center gap-x-10 ">
             <RoyalPlast className="text-3xl font-bold">
@@ -148,12 +148,25 @@ const Page1 = () => {
           </PlayContainer>
         </div>
         <IMG src={img1} alt="" className="w-[50%]" />
-      </div>
+      </Container>
     </>
   );
 };
 
 export default Page1;
+
+const Container = styled.div`
+  @media only screen and (max-width: 1000px) {
+    position: relative;
+    top: -10px;
+  }
+  @media only screen and (max-width: 550px) {
+    top: -17px;
+  }
+  @media only screen and (max-width: 430px) {
+    top: -8px;
+  }
+`;
 
 const IMG = styled.img`
   @media only screen and (max-width: 1000px) {
@@ -229,6 +242,13 @@ const ButtonContainer = styled.div`
   }
   @media only screen and (max-width: 1000px) {
     padding-top: 10px;
+  }
+  @media only screen and (max-width: 550px) {
+    position: relative;
+    left: 15px;
+  }
+  @media only screen and (max-width: 430px) {
+    left: 13px;
   }
 `;
 

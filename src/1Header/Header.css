@@ -67,8 +67,8 @@ body {
   background-color: var(--bg-color);
   position: fixed !important;
   width: 100%;
-  height: 100px;
-  padding: 10px;
+  height: 90px;
+  padding: 5px;
   border-radius: 0 0 10px 10px;
 }
 .flexItem {
@@ -309,8 +309,9 @@ body {
     width: 95%;
   }
   .fixedColor {
-    padding: 10px !important;
-    height: 100px;
+    padding: 5px !important;
+    height: 90px;
+    border-radius: 0 0 8px 8px;
   }
   .popup-menu {
     width: 72%;
@@ -360,10 +361,7 @@ body {
     background-color: var(--bg-color);
     position: fixed !important;
     width: 100%;
-    height: 110px;
-    padding: 10px;
-    height: 90px;
-    border-radius: 0 0 10px 10px;
+    height: 80px;
   }
   .flexItem {
     display: flex;

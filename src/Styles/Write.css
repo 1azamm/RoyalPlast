@@ -90,6 +90,6 @@ body.active-modal {
 }
 @media only screen and (max-width: 430px) {
   .modal-content {
-    top: 50%;
+    top: 47%;
   }
 }
