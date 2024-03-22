@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import Slide from "react-reveal/Slide";
+// import Slide from "react-reveal/Slide";
 import { LocalizationApi } from "../Context/Language";
 import Title from "../utils/Title";
 import styled from "styled-components";
@@ -106,36 +106,36 @@ const Page2 = () => {
 
       <DIV className="flex flex-row gap-5 flex-wrap xl:flex-nowrap justify-center">
         {images.map((item, i) => (
-          <Slide bottom key={i}>
-            <Link to={item.link}>
-              <ImgContainer
-                onClick={() => window.scrollTo({ top: 0, behavior: "auto" })}
-                onMouseEnter={() => handleMouseEnter(i)}
-                onMouseLeave={handleMouseLeave}
+          // <Slide bottom key={i}>
+          <Link to={item.link}>
+            <ImgContainer
+              onClick={() => window.scrollTo({ top: 0, behavior: "auto" })}
+              onMouseEnter={() => handleMouseEnter(i)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <BackgroundDiv
+                style={{
+                  backgroundImage: `url(${item.img}) `,
+                  width: "470px",
+                  height: "320px",
+                }}
               >
-                <BackgroundDiv
-                  style={{
-                    backgroundImage: `url(${item.img}) `,
-                    width: "470px",
-                    height: "320px",
-                  }}
-                >
-                  <ContentContainer>
-                    <ImgTextContainer
-                      className={hoveredIndex === i ? "hovered" : ""}
-                    >
-                      {item.h1}
-                    </ImgTextContainer>
-                    <ImgHoverText
-                      className={hoveredIndex === i ? "visible" : "hidden"}
-                    >
-                      {item.hoverText}
-                    </ImgHoverText>
-                  </ContentContainer>
-                </BackgroundDiv>
-              </ImgContainer>
-            </Link>
-          </Slide>
+                <ContentContainer>
+                  <ImgTextContainer
+                    className={hoveredIndex === i ? "hovered" : ""}
+                  >
+                    {item.h1}
+                  </ImgTextContainer>
+                  <ImgHoverText
+                    className={hoveredIndex === i ? "visible" : "hidden"}
+                  >
+                    {item.hoverText}
+                  </ImgHoverText>
+                </ContentContainer>
+              </BackgroundDiv>
+            </ImgContainer>
+          </Link>
+          // </Slide>
         ))}
       </DIV>
     </Section>

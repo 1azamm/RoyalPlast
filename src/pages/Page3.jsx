@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { LocalizationApi } from "../Context/Language";
 import Title from "../utils/Title";
 import styled from "styled-components";
-import Slide from "react-reveal/Slide";
+// import Slide from "react-reveal/Slide";
 
 import img1 from "../LexanTovar/stalpro_230615_fto_full.jpg";
 import img2 from "../LexanTovar/razmery-teplits-iz-polikarbonata-optimalnaya-shirina-dlinna-vysota-forma-osobennosti-materiala-foto--5.webp";
@@ -53,76 +53,76 @@ const Page3 = () => {
   const { language } = useContext(LocalizationApi);
 
   return (
-    <Slide bottom>
-      <CONTAINER className="px-8 py-10 bg-gradient-to-t from-sky-100 to-rgb(237, 244, 247)">
-        <Title
-          position={
-            "text-center mb-20 pt-16 underline decoration-[#77b94c] underline-offset-[14px] leading-[50px]"
-          }
-          text={
-            language === "uz"
-              ? "BARCHA TURDAGI ILOVALAR UCHUN"
-              : "ДЛЯ ВСЕХ ВИДОВ ПРИЛОЖЕНИЙ"
-          }
-        />
-        <div className="Content1 flex justify-between flex-wrap xl:pb-7 lg:pb-2">
-          {images.slice(0, 3).map((image, index) => (
-            <div className="overflow-hidden flex" key={index}>
-              <ImageContainer1
-                key={index}
-                url={image.src}
-                width={image.width}
-                height={image.height}
-                onMouseEnter={() => setHoveredIndex(index + 1)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                hovered={hoveredIndex === index + 1}
-              >
-                <OverlayText hovered={hoveredIndex === index + 1}>
-                  {language === "uz" ? image.alt : image.altRU}
-                </OverlayText>
-              </ImageContainer1>
-            </div>
-          ))}
-        </div>
-        <div className="Content2 flex justify-between flex-wrap">
-          {images.slice(3, 4).map((image, index) => (
-            <div className="overflow-hidden flex flex-wrap" key={index}>
-              <ImageContainer
-                key={index}
-                url={image.src}
-                width={image.width}
-                height={image.height}
-                onMouseEnter={() => setHoveredIndex(index + 4)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                hovered={hoveredIndex === index + 4}
-              >
-                <OverlayText hovered={hoveredIndex === index + 4}>
-                  {language === "uz" ? image.alt : image.altRU}
-                </OverlayText>
-              </ImageContainer>
-            </div>
-          ))}
+    // <Slide bottom>
+    <CONTAINER className="px-8 py-10 bg-gradient-to-t from-sky-100 to-rgb(237, 244, 247)">
+      <Title
+        position={
+          "text-center mb-20 pt-16 underline decoration-[#77b94c] underline-offset-[14px] leading-[50px]"
+        }
+        text={
+          language === "uz"
+            ? "BARCHA TURDAGI ILOVALAR UCHUN"
+            : "ДЛЯ ВСЕХ ВИДОВ ПРИЛОЖЕНИЙ"
+        }
+      />
+      <div className="Content1 flex justify-between flex-wrap xl:pb-7 lg:pb-2">
+        {images.slice(0, 3).map((image, index) => (
+          <div className="overflow-hidden flex" key={index}>
+            <ImageContainer1
+              key={index}
+              url={image.src}
+              width={image.width}
+              height={image.height}
+              onMouseEnter={() => setHoveredIndex(index + 1)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              hovered={hoveredIndex === index + 1}
+            >
+              <OverlayText hovered={hoveredIndex === index + 1}>
+                {language === "uz" ? image.alt : image.altRU}
+              </OverlayText>
+            </ImageContainer1>
+          </div>
+        ))}
+      </div>
+      <div className="Content2 flex justify-between flex-wrap">
+        {images.slice(3, 4).map((image, index) => (
+          <div className="overflow-hidden flex flex-wrap" key={index}>
+            <ImageContainer
+              key={index}
+              url={image.src}
+              width={image.width}
+              height={image.height}
+              onMouseEnter={() => setHoveredIndex(index + 4)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              hovered={hoveredIndex === index + 4}
+            >
+              <OverlayText hovered={hoveredIndex === index + 4}>
+                {language === "uz" ? image.alt : image.altRU}
+              </OverlayText>
+            </ImageContainer>
+          </div>
+        ))}
 
-          {images.slice(4, 5).map((image, index) => (
-            <div className="overflow-hidden flex flex-wrap" key={index}>
-              <ImageContainer
-                key={index}
-                url={image.src}
-                width={image.width}
-                height={image.height}
-                onMouseEnter={() => setHoveredIndex(index + 5)}
-                onMouseLeave={() => setHoveredIndex(null)}
-                hovered={hoveredIndex === index + 5}
-              >
-                <OverlayText hovered={hoveredIndex === index + 5}>
-                  {language === "uz" ? image.alt : image.altRU}
-                </OverlayText>
-              </ImageContainer>
-            </div>
-          ))}
-        </div>
-      </CONTAINER>
-    </Slide>
+        {images.slice(4, 5).map((image, index) => (
+          <div className="overflow-hidden flex flex-wrap" key={index}>
+            <ImageContainer
+              key={index}
+              url={image.src}
+              width={image.width}
+              height={image.height}
+              onMouseEnter={() => setHoveredIndex(index + 5)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              hovered={hoveredIndex === index + 5}
+            >
+              <OverlayText hovered={hoveredIndex === index + 5}>
+                {language === "uz" ? image.alt : image.altRU}
+              </OverlayText>
+            </ImageContainer>
+          </div>
+        ))}
+      </div>
+    </CONTAINER>
+    // </Slide>
   );
 };
 const CONTAINER = styled.div`
