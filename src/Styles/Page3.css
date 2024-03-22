@@ -1,0 +1,13 @@
+:root {
+  --h2: black;
+}
+
+.darkmode {
+  --h2: rgb(255, 255, 255);
+}
+h2 {
+  color: var(--h2);
+}
+p {
+  color: var(--h2);
+}

@@ -1,0 +1,95 @@
+body.active-modal {
+  overflow-y: hidden;
+  z-index: 9999 !important;
+}
+
+.btn-modal {
+  padding: 10px 20px;
+  display: block;
+  margin: 100px auto 0;
+  font-size: 18px;
+}
+
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+.modal {
+  z-index: 9999 !important;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.604);
+}
+.modal-content {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(234, 236, 238);
+  padding: 0px 10px;
+  border-radius: 3px;
+  max-width: 450px;
+  min-width: 300px;
+}
+
+.close-modal {
+  position: absolute;
+  right: 0;
+  margin: 3px;
+  padding: 1px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .modal-content {
+    width: 50%;
+    height: 650px;
+    top: 55%;
+  }
+  .message {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 755px) {
+  .modal-content {
+    height: 580px;
+  }
+  .pText {
+    font-size: 18px !important;
+    line-height: 22px !important;
+  }
+  .message::placeholder {
+    font-size: 14px;
+  }
+  textarea {
+    height: 180px;
+  }
+}
+
+@media only screen and (max-width: 670px) {
+  .modal-content {
+    width: 55%;
+  }
+}
+@media only screen and (max-width: 670px) {
+  .modal-content {
+    width: 65%;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .modal-content {
+    width: 85%;
+  }
+}
+@media only screen and (max-width: 430px) {
+  .modal-content {
+    top: 50%;
+  }
+}

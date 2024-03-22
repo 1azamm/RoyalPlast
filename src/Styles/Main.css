@@ -1,0 +1,11 @@
+:root {
+  --container: rgb(0, 0, 0);
+}
+
+.darkmode {
+  --container: rgb(255, 255, 255);
+}
+.Dark {
+  border-top: 1px solid var(--container);
+  border-bottom: 1px solid var(--container);
+}

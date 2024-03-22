@@ -1,0 +1,30 @@
+.Article {
+  list-style: none;
+  counter-reset: li;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.Article li {
+  position: relative;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-size: 18px;
+  padding-left: 50px;
+  cursor: pointer;
+  &:hover {
+    color: #37b700;
+  }
+}
+
+.Article li::before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  left: 0px;
+  top: -5px;
+  color: #7ab700;
+  font-weight: bold;
+  font-size: 25px;
+}

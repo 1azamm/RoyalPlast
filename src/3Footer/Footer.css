@@ -1,0 +1,42 @@
+:root {
+  --display: rgb(243, 244, 246);
+  --country: rgb(29, 78, 216);
+  --text: rgba(0, 14, 121, 0.809);
+  --hover: 0 0 10px rgba(0, 0, 0, 0.553);
+  --countryhover: rgb(30, 58, 138);
+}
+
+.darkmode {
+  --display: rgba(72, 72, 72, 0.709);
+  --display2: rgba(72, 72, 72, 0.076);
+  --country: rgb(140, 171, 255);
+  --text: rgb(237, 235, 235);
+  --hover: 0 0 10px white;
+  --countryhover: rgb(220, 224, 235);
+}
+
+.display {
+  background: var(--display) !important;
+}
+.copyright {
+  background: var(--display) !important;
+}
+.copyright2 {
+  background: var(--display2) !important;
+  color: var(--text) !important;
+}
+.country {
+  color: var(--country) !important;
+  &:hover {
+    color: var(--countryhover) !important;
+  }
+}
+.tel {
+  color: var(--text) !important;
+  &:hover {
+    color: var(--country) !important;
+  }
+}
+.net:hover {
+  filter: drop-shadow(var(--hover)) !important;
+}

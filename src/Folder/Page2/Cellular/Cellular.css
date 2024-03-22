@@ -1,0 +1,89 @@
+.Advantage {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.Advantage li {
+  position: relative;
+  font-size: 18px;
+  padding-left: 40px;
+}
+
+.Advantage li::before {
+  content: "";
+  background-image: url("../../../assets/imgs/check.png");
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  left: 0;
+  top: 2px;
+}
+
+.slick-dots {
+  bottom: -45px !important;
+}
+.slick-dots li {
+  border-radius: 50%;
+  width: 30px !important;
+  height: 5px !important;
+  border-radius: 2px !important;
+}
+.slick-dots li button {
+  width: 30px !important;
+  height: 5px !important;
+  border-radius: 2px !important;
+  padding: 0 !important;
+}
+.slick-dots li button:before {
+  width: 30px !important;
+  height: 5px !important;
+  border-radius: 2px !important;
+}
+.slick-dots li.slick-active button {
+  background: #00aeff !important;
+  width: 30px !important;
+  height: 5px !important;
+  border-radius: 2px !important;
+}
+.slick-dots li button:before {
+  content: "" !important;
+}
+.slick-arrow {
+  display: none !important;
+}
+
+@media only screen and (max-width: 630px) {
+  .Advantage li::before {
+    top: 3px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  #btn {
+    font-size: 16px !important;
+    padding: 12px 20px !important;
+  }
+}
+
+@media only screen and (max-width: 462px) {
+  #btn {
+    font-size: 16px !important;
+    padding: 12px !important;
+  }
+}
+@media only screen and (max-width: 430px) {
+  #btn {
+    font-size: 16px !important;
+  }
+  #btn2 {
+    margin-bottom: 20px !important;
+  }
+}
+@media only screen and (max-width: 429px) {
+  #btn {
+    font-size: 14px !important;
+  }
+}

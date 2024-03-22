@@ -1,0 +1,69 @@
+.bg {
+  width: 100%;
+  height: 820px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: none;
+}
+.text {
+  animation: FadeUp 0.7s ease-in-out;
+}
+@keyframes FadeUp {
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  from {
+    opacity: 0.1;
+    transform: translateY(-780px);
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .bg {
+    background-image: url("../LexanTovar/RoyalPlast.png");
+    height: 764px !important;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      background: #000;
+      opacity: 0.6;
+    }
+  }
+  .text {
+    width: 100% !important;
+    z-index: 40;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .bg {
+    height: 770px !important;
+    background-size: cover;
+    background-position: center center;
+    &::before {
+      height: 870px;
+    }
+  }
+  @keyframes FadeUp {
+    to {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+    from {
+      opacity: 0.1;
+      transform: translateY(780px);
+    }
+  }
+}
+@media only screen and (max-width: 430px) {
+  .bg {
+    height: 770px !important;
+    &::before {
+      height: 770px;
+    }
+  }
+}

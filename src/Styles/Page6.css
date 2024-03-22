@@ -1,0 +1,16 @@
+.slick-dots {
+  color: black;
+  margin-top: 400px !important;
+}
+
+.slick-dots li {
+  background: #77b94c;
+  border-radius: 2px;
+}
+.slick-dots li.slick-active button {
+  background: #00aeff !important;
+}
+
+.slick-dots-bottom {
+  bottom: -10px !important;
+}
