@@ -99,7 +99,11 @@ const HomeAccess = () => {
             <Button
               id={"btn"}
               onClick={handleClick}
-              text={"Distribyutorga aylaning"}
+              text={
+                language === "uz"
+                  ? "Distribyutorga aylaning"
+                  : "Стань дистрибьютором"
+              }
               position="text-[16px] bg-transparent rounded-none hover:text-white"
             />
           </div>
