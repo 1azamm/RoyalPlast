@@ -182,6 +182,7 @@ const IMG = styled.img`
 const H1 = styled.h1`
   @media only screen and (max-width: 450px) {
     font-size: 32px;
+    line-height: 55px;
   }
 `;
 

@@ -79,9 +79,9 @@ const HomeCellular = () => {
       </p>
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-4xl mb-8 font-medium underline decoration-[#77b94c] underline-offset-[14px]">
+          <H1 className="text-4xl mb-8 font-medium underline decoration-[#77b94c] underline-offset-[14px]">
             {language === "uz" ? "Uyali polikarbonat" : "Сотовый поликарбонат"}
-          </h1>
+          </H1>
           <P className="w-[77%] text-lg mb-10">
             {language === "uz"
               ? "Polimer materiallar turli maqsadlar uchun bino va inshootlarni qurishda keng qo'llaniladi. Uyali polikarbonat - bu ikki yoki uch qatlamli panel bo'lib, ular orasida uzunlamasina qattiqlashtiruvchilar joylashgan. Uyali struktura nisbatan past o'ziga xos tortishish bilan varaqning yuqori mexanik kuchini ta'minlaydi. Uyali polikarbonatning barcha texnik xususiyatlarini  tushunish va tushunish uchun uning xususiyatlarini va parametrlarini batafsil ko'rib chiqaylik."
@@ -169,5 +169,11 @@ const IMG = styled.img`
 const P = styled.p`
   @media only screen and (max-width: 900px) {
     width: 100%;
+  }
+`;
+
+const H1 = styled.h1`
+  @media only screen and (max-width: 410px) {
+    line-height: 55px;
   }
 `;

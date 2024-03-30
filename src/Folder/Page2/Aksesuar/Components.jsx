@@ -112,7 +112,7 @@ const Components = () => {
           {language === "uz" ? "turlari" : "типы"}
         </span>
       </H1>
-      <div className="flex  flex-wrap gap-6">
+      <DataContainer className="flex  flex-wrap gap-6">
         {data.map((item, index) => (
           <Container
             key={index}
@@ -130,11 +130,11 @@ const Components = () => {
               <hr />
               <div className="pt-5 h-[310px]">
                 <h1 className="text-xl font-semibold pb-5">{item.title}</h1>
-                <p className="text-gray-600 font-light">{item.description}</p>
+                <P className="text-gray-600 font-light">{item.description}</P>
               </div>
 
               <Button
-                id={"btn2"}
+                id={"btn3"}
                 text={language === "uz" ? "Buyurtma" : "Заказ"}
                 position={
                   "text-[16px] mb-[0px] py-[7px] w-[100%] bg-[#5bb521] text-white border-[#5bb521] border-2 text-white hover:text-[#5bb521] hover:shadow-[inset_1rem_1rem_1rem_12rem] hover:bg-transparent hover:shadow-[#5cb5212b] duration-[500ms,800ms] transition-[color,box-shadow] rounded-none lg:hover:text-green-900"
@@ -144,7 +144,7 @@ const Components = () => {
             </div>
           </Container>
         ))}
-      </div>
+      </DataContainer>
       <Write
         text={language === "uz" ? "Buyurtma" : "Заказ"}
         modal={toggle}
@@ -156,29 +156,38 @@ const Components = () => {
 
 export default Components;
 
+const DataContainer = styled.div`
+  @media only screen and (max-width: 1280px) {
+    justify-content: center;
+  }
+`;
 const Container = styled.div`
   &:hover {
     transition: all 0.3s ease-in-out;
     box-shadow: 0 0 20px gray;
   }
-  @media only screen and (max-width: 1200px) {
-    width: 49%;
+  @media only screen and (max-width: 1280px) {
+    width: 48%;
   }
-  @media only screen and (max-width: 750px) {
+  @media only screen and (max-width: 870px) {
     width: 100%;
+    margin: 0 40px;
+  }
+  @media only screen and (max-width: 700px) {
+    margin: 0;
   }
 `;
 
 const H1 = styled.h1`
   @media only screen and (max-width: 484px) {
     font-size: 24px;
+    font-weight: 400;
     margin-bottom: 45px;
     line-height: 50px;
   }
 `;
-
-const TextContainer = styled.div`
-  @media only screen and (max-width: 430px) {
-    height: 340px;
+const P = styled.p`
+  @media only screen and (max-width: 484px) {
+    font-size: 15px;
   }
 `;

@@ -173,9 +173,13 @@ const Container = styled.div`
 `;
 
 const H1 = styled.h1`
+  @media only screen and (max-width: 575px) {
+    line-height: 60px;
+  }
   @media only screen and (max-width: 484px) {
     font-size: 24px;
     margin-bottom: 45px;
+    line-height: 50px;
   }
 `;
 
