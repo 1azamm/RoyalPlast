@@ -7,7 +7,6 @@ import orangeImage from "../LexanTovar/TovarColor/Polik/10mm_orange.jpeg";
 import yellowImage from "../LexanTovar/TovarColor/Polik/8mm_yelow.jpeg";
 import blueImage from "../LexanTovar/TovarColor/Polik/8mm_blue.jpeg";
 import greenImage from "../LexanTovar/TovarColor/Polik/8mm_greeen.jpeg";
-import greenfishImage from "../LexanTovar/TovarColor/Polik/grinfish.jpeg";
 import biruzaImage from "../LexanTovar/TovarColor/Polik/8mm_biruza.jpeg";
 import greyImage from "../LexanTovar/TovarColor/Polik/8mm_grey.jpeg";
 import silverImage from "../LexanTovar/TovarColor/Polik/8mm_silver.jpeg";
@@ -21,40 +20,37 @@ import ylPCImage from "../LexanTovar/TovarColor/Monolit/yl_PC.jpeg";
 import bluePCImage from "../LexanTovar/TovarColor/Monolit/blue_PC.jpeg";
 import birPCImage from "../LexanTovar/TovarColor/Monolit/bir_PC.jpeg";
 import zelPCImage from "../LexanTovar/TovarColor/Monolit/zel_PC.jpeg";
-import grfPCImage from "../LexanTovar/TovarColor/Monolit/grf_PC.jpeg";
 import ssPCImage from "../LexanTovar/TovarColor/Monolit/ss_PC.jpeg";
 import silverPCImage from "../LexanTovar/TovarColor/Monolit/silver_PC.jpeg";
 import belPCImage from "../LexanTovar/TovarColor/Monolit/bel_PC.jpeg";
 import prosrPCImage from "../LexanTovar/TovarColor/Monolit/prosr_PC.jpeg";
 
 export const cellularColors = [
-  { name: "Qizil", image: granatImage },
-  { name: "Apelsin", image: redImage },
-  { name: "Amber", image: yantarImage },
-  { name: "Bronza", image: productColorImage },
-  { name: "Olovrang", image: orangeImage },
-  { name: "Sariq", image: yellowImage },
-  { name: "Ko'k", image: blueImage },
-  { name: "Yashil", image: greenImage },
-  { name: "Greenfish", image: greenfishImage },
-  { name: "Moviy", image: biruzaImage },
-  { name: "Kulrang", image: greyImage },
-  { name: "Kumush", image: silverImage },
-  { name: "Oq", image: milkImage },
-  { name: "Shaffof", image: whiteImage },
+  { name: "Qizil", nameRU: "Красный", image: granatImage },
+  { name: "Apelsin", nameRU: "Апельсин", image: redImage },
+  { name: "Amber", nameRU: "Янтарь", image: yantarImage },
+  { name: "Bronza", nameRU: "Бронза", image: productColorImage },
+  { name: "Olovrang", nameRU: "Цвет огня", image: orangeImage },
+  { name: "Sariq", nameRU: "Желтый", image: yellowImage },
+  { name: "Ko'k", nameRU: "Голубой", image: blueImage },
+  { name: "Yashil", nameRU: "Зеленый", image: greenImage },
+  { name: "Moviy", nameRU: "Синий", image: biruzaImage },
+  { name: "Kulrang", nameRU: "Серый", image: greyImage },
+  { name: "Kumush", nameRU: "Серебро", image: silverImage },
+  { name: "Oq", nameRU: "Белый", image: milkImage },
+  { name: "Shaffof", nameRU: "Прозрачный", image: whiteImage },
 ];
 
 export const monolitColors = [
-  { name: "Qizil", image: redPCImage },
-  { name: "Olovrang", image: orPCImage },
-  { name: "Bronza", image: bronzaPCImage },
-  { name: "Sariq", image: ylPCImage },
-  { name: "Moviy", image: bluePCImage },
-  { name: "Turkuaz", image: birPCImage },
-  { name: "Yashil", image: zelPCImage },
-  { name: "Greenfish", image: grfPCImage },
-  { name: "Kulrang", image: ssPCImage },
-  { name: "Kumush", image: silverPCImage },
-  { name: "Oq", image: belPCImage },
-  { name: "Shaffof", image: prosrPCImage },
+  { name: "Qizil", nameRU: "Красный", image: redPCImage },
+  { name: "Olovrang", nameRU: "Цвет огня", image: orPCImage },
+  { name: "Bronza", nameRU: "Бронза", image: bronzaPCImage },
+  { name: "Sariq", nameRU: "Желтый", image: ylPCImage },
+  { name: "Moviy", nameRU: "Синий", image: bluePCImage },
+  { name: "Turkuaz", nameRU: "Бирюзовый", image: birPCImage },
+  { name: "Yashil", nameRU: "Зеленый", image: zelPCImage },
+  { name: "Kulrang", nameRU: "Серый", image: ssPCImage },
+  { name: "Kumush", nameRU: "Серебро", image: silverPCImage },
+  { name: "Oq", nameRU: "Белый", image: belPCImage },
+  { name: "Shaffof", nameRU: "Прозрачный", image: prosrPCImage },
 ];

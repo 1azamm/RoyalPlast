@@ -174,6 +174,11 @@ const ImageContainer1 = styled.div`
     max-width: 100%;
     max-height: 300px !important;
   }
+  @media (max-width: 1024px) {
+    flex-wrap: wrap;
+    width: 310px !important;
+    margin-bottom: 20px;
+  }
   @media (max-width: 1000px) {
     flex-wrap: wrap;
     width: 980px !important;
@@ -215,13 +220,16 @@ const ImageContainer = styled.div`
     max-width: 100%;
     max-height: 300px !important;
   }
+  @media (max-width: 1024px) {
+    width: 470px !important;
+    max-width: 100%;
+    max-height: 300px !important;
+  }
 
   @media (max-width: 1000px) {
-    @media (max-width: 1000px) {
-      flex-wrap: wrap;
-      width: 980px !important;
-      margin-bottom: 20px;
-    }
+    flex-wrap: wrap;
+    width: 980px !important;
+    margin-bottom: 20px;
   }
 `;
 

@@ -5,9 +5,7 @@ import img from "../../../LexanTovar/profiled.jpg";
 import Button from "../../../utils/Button";
 import Write from "../../../utils/Write";
 import styled from "styled-components";
-
-const PDF =
-  "http://localhost:5173/cellular_polycarbonate/Greko-rabochiy-A4.pdf";
+import PDF from "../../../assets/Greko-rabochiy-A4.pdf";
 
 const HomeProfiled = () => {
   const { language } = useContext(LocalizationApi);
@@ -16,70 +14,61 @@ const HomeProfiled = () => {
     setToogle(!toggle);
   };
 
-  const downloadFile = (url) => {
-    fetch(url)
-      .then((response) => response.blob())
-      .then((blob) => {
-        const blobUrl = window.URL.createObjectURL(new Blob([blob]));
-        const fileName = url.split("/").pop();
-        const aTag = document.createElement("a");
-        aTag.href = blobUrl;
-        aTag.setAttribute("download", fileName);
-        document.body.appendChild(aTag);
-        aTag.click();
-        aTag.remove();
-      });
-  };
   const advantages = [
     {
       title:
         language === "uz"
           ? "Eng yuqori zarba qarshiligi"
-          : "Уникальное согнутый",
-      description: "uni buzish mumkin emas",
+          : "Высочайшая ударопрочность",
+      description:
+        language === "uz" ? "uni buzish mumkin emas" : "его нельзя сломать",
     },
     {
-      title: language === "uz" ? "UV himoya qatlami" : "UV-защита слоя -",
-      description: "Mavjud",
+      title: language === "uz" ? "UV himoya qatlami" : "UV-защита слоя",
+      description: language === "uz" ? "Mavjud" : "Есть",
     },
     {
       title:
         language === "uz"
-          ? "Yonuvchanlik - sekin yonish qobiliyati."
-          : "Светопропускание",
+          ? "Yonuvchanlik - sekin yonish qobiliyati"
+          : "Горючесть – способность медленно гореть",
       description: "yonuvchanlik guruhi G1 bilan",
     },
     {
       title:
         language === "uz"
           ? "Haddan tashqari haroratga bardosh beradi"
-          : "Критический температурный диапазон",
-      description: "-40˚S dan +120˚S gacha",
+          : "Выдерживает экстремальные температуры",
+      description:
+        language === "uz" ? "-40˚S dan +120˚S gacha" : "от -40˚С до +120˚С",
     },
     {
       title:
         language === "uz"
           ? "Silikat oynaga nisbatan past o'ziga xos tortishish"
-          : "Устойчивость к удару",
+          : "Низкий удельный вес по сравнению с силикатным стеклом",
       description: "1,19 g/sm³",
     },
     {
       title:
         language === "uz"
           ? "Yuqori issiqlik izolyatsiyasi"
-          : "Высокая теплоизоляционные характеристики",
-      description: "Isitish xarajatlarini ikki baravar kamaytiradi",
+          : "Высокая теплоизоляция",
+      description:
+        language === "uz"
+          ? "Isitish xarajatlarini ikki baravar kamaytiradi"
+          : "Снижает расходы на отопление вдвое",
     },
     {
       title:
         language === "uz"
-          ? "Organik oynaga mos keladigan shaffoflik -"
+          ? "Organik oynaga mos keladigan shaffoflik"
           : "Прозрачность",
-      description: "90% gacha",
+      description: language === "uz" ? "90% gacha" : "до 90%",
     },
     {
       title: language === "uz" ? "Kafolat:" : "Гарантия:",
-      description: "10 va 15 yil",
+      description: language === "uz" ? "10 va 15 yil" : "10 и 15 лет",
     },
   ];
   return (
@@ -87,46 +76,50 @@ const HomeProfiled = () => {
       <p className="py-3 text-sm">
         <Link to="/">
           <span className=" hover:text-blue-600 cursor-pointer">
-            Bosh sahifa
+            {language === "uz" ? "Bosh sahifa" : "Главный"}
           </span>
         </Link>
         <span className="text-gray-400"> / </span>
-        <span className="text-blue-600">Profillangan polikarbonat</span>
+        <span className="text-blue-600">
+          {language === "uz"
+            ? "Profillangan polikarbonat"
+            : "Профилированный поликарбонат"}
+        </span>
       </p>
       <div className="flex justify-between  mb-8">
         <div>
           <H1 className="text-4xl mb-8 font-medium underline decoration-[#77b94c] underline-offset-[14px]">
-            Profillangan polikarbonat
+            {language === "uz"
+              ? "Profillangan polikarbonat"
+              : "Профилированный поликарбонат"}
           </H1>
           <P className="w-[77%] text-lg mb-10">
-            Profillangan (gofrirovka qilingan) varaq yuqori yorug'lik
-            o'tkazuvchanligiga va keng ish haroratiga ega, bu uni issiqxonalarni
-            qoplash va tomlarni oynalash uchun ideal echimga aylantiradi. Bunday
-            choyshablar konstruksiyalarning korroziyaga chidamli qoplamasi va
-            binolarning qoplamasi (qoplama) uchun foydalanadigan mutaxassislar
-            tomonidan baholanadi. Plitalar o'z-o'zini qurish uchun ham
-            ishlatilishi mumkin. Profillangan polikarbonat qatlami zararli
-            ultrabinafsha nurlanishini o'tkazmaydi va to'liq himoya qiladi. Bu
-            barg sarg'aymaydi va yillar davomida o'z xususiyatlarini saqlab
-            qoladi.
+            {language === "uz"
+              ? "Profillangan (gofrirovka qilingan) varaq yuqori yorug'lik o'tkazuvchanligiga va keng ish haroratiga ega, bu uni issiqxonalarni qoplash va tomlarni oynalash uchun ideal echimga aylantiradi. Bunday choyshablar konstruksiyalarning korroziyaga chidamli qoplamasi va binolarning qoplamasi (qoplama) uchun foydalanadigan mutaxassislar tomonidan baholanadi. Plitalar o'z-o'zini qurish uchun ham ishlatilishi mumkin. Profillangan polikarbonat qatlami zararli ultrabinafsha nurlanishini o'tkazmaydi va to'liq himoya qiladi. Bu barg sarg'aymaydi va yillar davomida o'z xususiyatlarini saqlab qoladi."
+              : "Профилированный (гофрированный) лист имеет высокую светопроницаемость и широкий диапазон рабочих температур, что делает его идеальным решением для покрытия теплиц и остекления крыш. Такие листы оцениваются специалистами, которые используют их для антикоррозийного покрытия конструкций и покрытия (обмазки) зданий. Плиты также можно использовать для самостоятельного строительства. Профилированный слой поликарбоната не пропускает вредное ультрафиолетовое излучение и обеспечивает полную защиту. Этот лист не желтеет и сохраняет свои свойства годами."}
           </P>
           <div className="flex gap-x-5">
-            <Button
-              id={"btn"}
-              onClick={() => {
-                downloadFile(PDF);
-              }}
-              text={
-                language === "uz" ? "Yuklab olish katalogi" : "Скачать каталог"
-              }
-              position={
-                "bg-[#5bb521] text-[16px] text-white border-[#5bb521] border-2 text-white hover:text-[#5bb521] hover:shadow-[inset_23rem_0_0_0] hover:bg-transparent hover:shadow-[#5cb5212b] duration-[500ms,800ms] transition-[color,box-shadow] rounded-none lg:hover:text-green-900"
-              }
-            />
+            <a href={PDF} download="Profillangan-polikarbonat">
+              <Button
+                id={"btn"}
+                text={
+                  language === "uz"
+                    ? "Yuklab olish katalogi"
+                    : "Скачать каталог"
+                }
+                position={
+                  "bg-[#5bb521] text-[16px] text-white border-[#5bb521] border-2 text-white hover:text-[#5bb521] hover:shadow-[inset_23rem_0_0_0] hover:bg-transparent hover:shadow-[#5cb5212b] duration-[500ms,800ms] transition-[color,box-shadow] rounded-none lg:hover:text-green-900"
+                }
+              />
+            </a>
             <Button
               id={"btn"}
               onClick={handleClick}
-              text={"Distribyutorga aylaning"}
+              text={
+                language === "uz"
+                  ? "Distribyutorga aylaning"
+                  : "Стань дистрибьютором"
+              }
               position="text-[16px] bg-transparent rounded-none hover:text-white"
             />
           </div>
@@ -134,8 +127,12 @@ const HomeProfiled = () => {
         <IMG src={img} width="33%" alt="" />
       </div>
       <h1 className="text-3xl mb-5">
-        Profillangan polikarbonatning{" "}
-        <span className="font-semibold">afzalliklari:</span>
+        {language === "uz"
+          ? "Profillangan polikarbonatning"
+          : "Профилированный поликарбоната"}{" "}
+        <span className="font-semibold">
+          {language === "uz" ? "afzalliklari:" : "преимущества:"}
+        </span>
       </h1>
       <div className="flex justify-between flex-wrap">
         <ul className={`Advantage pt-3 `}>
@@ -164,7 +161,9 @@ const HomeProfiled = () => {
         </ul>
       </div>
       <Write
-        text={"Distribyutorga aylaning"}
+        text={
+          language === "uz" ? "Distribyutorga aylaning" : "Стань дистрибьютором"
+        }
         modal={toggle}
         setModal={setToogle}
       />

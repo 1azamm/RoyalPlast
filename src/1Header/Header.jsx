@@ -103,7 +103,7 @@ const Header = () => {
     }
 
     if (url) {
-      window.open(url, "_blank");
+      window.open(url);
     }
   };
 
@@ -181,8 +181,8 @@ const Header = () => {
               onChange={handleLanguageChange}
               value={language}
             >
-              <option value="ru">RU</option>
               <option value="uz">UZ</option>
+              <option value="ru">RU</option>
             </select>
             <div className="dark-mode" onClick={toggleDarkMode}>
               <img src={sun} alt="" />
@@ -246,8 +246,8 @@ const Header = () => {
             onChange={handleLanguageChange}
             value={language}
           >
-            <option value="ru">RU</option>
             <option value="uz">UZ</option>
+            <option value="ru">RU</option>
           </select>
           <div className="flex-network">
             <img src={telegram} onClick={() => handleNetworkClick(0)} alt="" />

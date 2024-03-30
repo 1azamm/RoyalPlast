@@ -1,4 +1,5 @@
-import React from "react";
+import { useContext } from "react";
+import { LocalizationApi } from "../../../Context/Language";
 import Turkuaz from "../../../LexanTovar/prof1.jpg";
 import Blue from "../../../LexanTovar/prof2.jpg";
 import Bronza from "../../../LexanTovar/prof3.jpg";
@@ -8,15 +9,16 @@ import SkyBlue from "../../../LexanTovar/download-2.jpg";
 import styled from "styled-components";
 
 const profiledColor = [
-  { name: "Turkuaz", image: Turkuaz },
-  { name: "Ko'k", image: Blue },
-  { name: "Bronza", image: Bronza },
-  { name: "Kulrang", image: Gray },
-  { name: "Shaffof", image: Transparent },
-  { name: "Moviy", image: SkyBlue },
+  { name: "Turkuaz", nameRU: "Бирюзовый", image: Turkuaz },
+  { name: "Ko'k", nameRU: "Голубой", image: Blue },
+  { name: "Bronza", nameRU: "Бронза", image: Bronza },
+  { name: "Kulrang", nameRU: "Серый", image: Gray },
+  { name: "Shaffof", nameRU: "Прозрачный", image: Transparent },
+  { name: "Moviy", nameRU: "Синий", image: SkyBlue },
 ];
 
 const ColorProfiled = () => {
+  const { language } = useContext(LocalizationApi);
   const renderColorItems = (colors) => {
     return colors.map((color, index) => (
       <Container key={index} className="flex flex-col items-center gap-y-3 ">
@@ -25,7 +27,9 @@ const ColorProfiled = () => {
           src={color.image}
           alt={color.name}
         />
-        <Span className="text-lg">{color.name}</Span>
+        <Span className="text-lg">
+          {language === "uz" ? color.name : color.nameRU}
+        </Span>
       </Container>
     ));
   };
@@ -33,7 +37,9 @@ const ColorProfiled = () => {
   return (
     <Main className="mt-20">
       <H1 className="text-3xl mb-20 font-semibold underline decoration-[#77b94c] underline-offset-[14px]">
-        PROFILLANGAN POLIKARBONATNING RANGLARI
+        {language === "uz"
+          ? "PROFILLANGAN POLIKARBONATNING RANGLARI"
+          : "ЦВЕТА ПРОФИЛИРОВАННОГО ПОЛИКАРБОНАТА"}
       </H1>
       <Color className="text-center flex flex-wrap gap-x-8 gap-y-10">
         {renderColorItems(profiledColor)}

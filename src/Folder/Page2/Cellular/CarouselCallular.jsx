@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,8 +10,10 @@ import Bolt from "../../../LexanTovar/bolt.jpeg";
 import Skotch from "../../../LexanTovar/skotch.jpeg";
 import Write from "../../../utils/Write";
 import Button from "../../../utils/Button";
+import { LocalizationApi } from "../../../Context/Language";
 
 const CarouselCallular = () => {
+  const { language } = useContext(LocalizationApi);
   const [toggle, setToggle] = useState(false);
 
   const handleClick = () => {
@@ -52,19 +54,43 @@ const CarouselCallular = () => {
   const products = [
     {
       image: HP,
-      description: "Ulanish tizimi",
-      name: "Ulanish tizimi (profil) HP",
+      description: language === "uz" ? "Ulanish tizimi" : "Система подключения",
+      name:
+        language === "uz"
+          ? "Ulanish tizimi (profil) HP"
+          : "Система подключения HP",
     },
-    { image: HCP, description: "Profillar", name: "HCP profillari" },
-    { image: Tugatish, description: "Profillar", name: "Profillarni tugatish" },
-    { image: Bolt, description: "Termal yuvish vositalari", name: "Uskuna" },
-    { image: Skotch, description: "Himoya lentasi", name: "Yopishqoq lenta" },
+    {
+      image: HCP,
+      description: language === "uz" ? "Profillar" : "Профили",
+      name: language === "uz" ? "HCP profillari" : "HCP профили",
+    },
+    {
+      image: Tugatish,
+      description: language === "uz" ? "Profillar" : "Профили",
+      name: language === "uz" ? "Profillarni tugatish" : "Конечные профили",
+    },
+    {
+      image: Bolt,
+      description:
+        language === "uz"
+          ? "Termal yuvish vositalari"
+          : "Термические моющие средства",
+      name: language === "uz" ? "Uskuna" : "Оборудование",
+    },
+    {
+      image: Skotch,
+      description: language === "uz" ? "Himoya lentasi" : "Защитная лента",
+      name: language === "uz" ? "Yopishqoq lenta" : "Самоклеющаяся пленка",
+    },
   ];
 
   return (
     <Body className="px-10 pb-20">
       <H1 className="text-center mt-16 text-3xl mb-20 font-semibold underline decoration-[#77b94c] underline-offset-[14px]">
-        USHBU MAHSULOT UCHUN AKSESSUARLAR
+        {language === "uz"
+          ? "USHBU MAHSULOT UCHUN AKSESSUARLAR"
+          : "АКСЕССУАРЫ ДЛЯ ЭТОГО ИЗДЕЛИЯ"}
       </H1>
 
       <Slider {...settings}>
@@ -81,7 +107,7 @@ const CarouselCallular = () => {
               <h1 className="text-xl font-light pb-2">{product.name}</h1>
               <Button
                 id="btn2"
-                text={"Buyurtma"}
+                text={language === "uz" ? "Buyurtma" : "Заказ"}
                 position={
                   "text-[16px] bg-[#5bb521] text-white border-[#5bb521] border-2 text-white hover:text-[#5bb521] hover:shadow-[inset_23rem_0_0_0] hover:bg-transparent hover:shadow-[#5cb5212b] duration-[500ms,800ms] transition-[color,box-shadow] rounded-none lg:hover:text-green-900"
                 }
@@ -91,7 +117,11 @@ const CarouselCallular = () => {
           </Container>
         ))}
       </Slider>
-      <Write text={"Buyurtma"} modal={toggle} setModal={setToggle} />
+      <Write
+        text={language === "uz" ? "Buyurtma" : "Заказ"}
+        modal={toggle}
+        setModal={setToggle}
+      />
     </Body>
   );
 };

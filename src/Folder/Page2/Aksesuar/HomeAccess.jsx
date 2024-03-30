@@ -5,30 +5,13 @@ import img from "../../../LexanTovar/access.jpg";
 import Button from "../../../utils/Button";
 import Write from "../../../utils/Write";
 import styled from "styled-components";
-
-const PDF =
-  "http://localhost:5173/cellular_polycarbonate/GCPru250213print1.pdf";
+import PDF from "../../../assets/GCPru250213print1.pdf";
 
 const HomeAccess = () => {
   const { language } = useContext(LocalizationApi);
   const [toggle, setToogle] = useState(false);
   const handleClick = () => {
     setToogle(!toggle);
-  };
-
-  const downloadFile = (url) => {
-    fetch(url)
-      .then((response) => response.blob())
-      .then((blob) => {
-        const blobUrl = window.URL.createObjectURL(new Blob([blob]));
-        const fileName = url.split("/").pop();
-        const aTag = document.createElement("a");
-        aTag.href = blobUrl;
-        aTag.setAttribute("download", fileName);
-        document.body.appendChild(aTag);
-        aTag.click();
-        aTag.remove();
-      });
   };
 
   const text = [
@@ -39,32 +22,41 @@ const HomeAccess = () => {
     "Shaffof, bronza, ko'k, yashil, firuza, qizil, sariq, to'q sariq, kehribar, kumush, kulrang, oq, granat: Barcha profillar uyali polikarbonat choyshablarining ranglariga to'liq mos keladigan keng ranglarda mavjud.",
   ];
 
-  const renderedText = text.map((paragraph, index) => (
-    <p key={index}>{paragraph}</p>
-  ));
+  const textRu = [
+    "Рекомендуется аккуратно устанавливать сотовый поликарбонат, чтобы сохранить его на длительное время, соединять листы, изготовленные с использованием специальных соединительных профилей и фурнитуры, для прочности и эстетичного вида всей конструкции.",
+    "Поликарбонатные профили специально разработаны для того, чтобы вы могли выбрать наиболее удобный и подходящий для разных типов покрытий. Например, скрепить листы друг к другу под углом, соединить листы на коньке крыши, задекорировать торцы поликарбонатного покрытия.",
+    "Внешне все профили защищены от ультрафиолетовых лучей и сохраняют форму и внешний вид на протяжении всего срока службы.",
+    "Перед установкой профиля рекомендуется заклеить торцы листа сотового поликарбоната уплотнителем или перфорированной лентой.",
+    "Прозрачный, бронзовый, синий, зеленый, бирюзовый, красный, желтый, оранжевый, янтарный, серебристый, серый, белый, гранатовый: все профили доступны в широкой цветовой гамме, идеально сочетающейся с цветами листов сотового поликарбоната.",
+  ];
+
+  const renderedText =
+    language === "uz"
+      ? text.map((paragraph, index) => <p key={index}>{paragraph}</p>)
+      : textRu.map((paragraph, index) => <p key={index}>{paragraph}</p>);
 
   const advantages = [
     {
       title:
-        language === "uz" ? "Dizaynlarning estetikasi" : "Уникальное согнутый",
+        language === "uz" ? "Dizaynlarning estetikasi" : "Эстетика дизайна",
     },
     {
       title:
         language === "uz"
           ? "Ushbu mahkamlash usuli bilan dizayn ancha bardoshli va samarali."
-          : "UV-защита слоя -",
+          : "При таком способе крепления конструкция получается более прочной и эффективной.",
     },
     {
       title:
         language === "uz"
           ? "Har xil yopishtiruvchi va mastiklar ishlatilmaydi"
-          : "Светопропускание",
+          : "Не используются различные клеи и герметики.",
     },
     {
       title:
         language === "uz"
           ? "Sizdirmazlik va gidroizolyatsiya ehtiyotkorlik bilan loyihalash orqali erishiladi"
-          : "Критический температурный диапазон",
+          : "Водонепроницаемость и гидроизоляция достигаются за счет тщательного проектирования.",
     },
   ];
 
@@ -73,33 +65,37 @@ const HomeAccess = () => {
       <p className="py-3 text-sm">
         <Link to="/">
           <span className=" hover:text-blue-600 cursor-pointer">
-            Bosh sahifa
+            {language === "uz" ? "Bosh sahifa" : "Главный"}
           </span>
         </Link>
         <span className="text-gray-400"> / </span>
-        <span className="text-blue-600">Aksessuarlar</span>
+        <span className="text-blue-600">
+          {" "}
+          {language === "uz" ? "Aksesuarlar" : "Аксессуары"}
+        </span>
       </p>
       <div className="flex justify-between mb-8">
         <div>
           <h1 className="text-4xl mb-8 font-medium underline decoration-[#77b94c] underline-offset-[14px]">
-            Aksessuarlar
+            {language === "uz" ? "Aksesuarlar" : "Аксессуары"}
           </h1>
           <P className="w-[80%] flex flex-col gap-y-5 text-lg mb-10">
             {renderedText}
           </P>
           <div className="flex gap-x-5">
-            <Button
-              id={"btn"}
-              onClick={() => {
-                downloadFile(PDF);
-              }}
-              text={
-                language === "uz" ? "Yuklab olish katalogi" : "Скачать каталог"
-              }
-              position={
-                "bg-[#5bb521] text-[16px] text-white border-[#5bb521] border-2 text-white hover:text-[#5bb521] hover:shadow-[inset_23rem_0_0_0] hover:bg-transparent hover:shadow-[#5cb5212b] duration-[500ms,800ms] transition-[color,box-shadow] rounded-none lg:hover:text-green-900"
-              }
-            />
+            <a href={PDF} download="Aksesuarlar">
+              <Button
+                id={"btn"}
+                text={
+                  language === "uz"
+                    ? "Yuklab olish katalogi"
+                    : "Скачать каталог"
+                }
+                position={
+                  "bg-[#5bb521] text-[16px] text-white border-[#5bb521] border-2 text-white hover:text-[#5bb521] hover:shadow-[inset_23rem_0_0_0] hover:bg-transparent hover:shadow-[#5cb5212b] duration-[500ms,800ms] transition-[color,box-shadow] rounded-none lg:hover:text-green-900"
+                }
+              />
+            </a>
             <Button
               id={"btn"}
               onClick={handleClick}
@@ -117,8 +113,10 @@ const HomeAccess = () => {
         ></IMG>
       </div>
       <h1 className="text-3xl mb-5 mt-10">
-        Maxsus komponentlarning
-        <span className="font-semibold"> afzalliklari:</span>
+        {language === "uz" ? "Maxsus komponentning" : "Специальный компонента"}{" "}
+        <span className="font-semibold">
+          {language === "uz" ? "afzalliklari:" : "преимущества:"}
+        </span>
       </h1>
       <div className="flex justify-between flex-wrap">
         <ul className={`Advantage pt-3 `}>
@@ -141,7 +139,9 @@ const HomeAccess = () => {
         </ul>
       </div>
       <Write
-        text={"Distribyutorga aylaning"}
+        text={
+          language === "uz" ? "Distribyutorga aylaning" : "Стань дистрибьютором"
+        }
         modal={toggle}
         setModal={setToogle}
       />

@@ -120,7 +120,7 @@ const Page1 = () => {
             </Link>
             <Button
               id="btn3"
-              text={"Murojaat"}
+              text={language === "uz" ? "Murojaat" : "Написать"}
               position="bg-transparent rounded-none hover:text-white"
               onClick={handleClick}
             />
@@ -149,7 +149,11 @@ const Page1 = () => {
           </PlayContainer>
         </div>
         <IMG src={img1} alt="" className="w-[50%]" />
-        <Write text={"Murojaat"} modal={toggle} setModal={setToogle} />
+        <Write
+          text={language === "uz" ? "Murojaat" : "Обращаться"}
+          modal={toggle}
+          setModal={setToogle}
+        />
       </Container>
     </>
   );

@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Link as Scroll } from "react-scroll";
 import "../Styles/More.css";
 import Articles from "./Articles/Articles";
+import { LocalizationApi } from "../Context/Language";
 
 import Article1 from "./Articles/Article1";
 import Article2 from "./Articles/Article2";
@@ -14,6 +15,7 @@ import Article7 from "./Articles/Article7";
 import styled from "styled-components";
 
 const More = () => {
+  const { language } = useContext(LocalizationApi);
   const [fix, setFix] = useState(false);
 
   useEffect(() => {
@@ -38,16 +40,20 @@ const More = () => {
         <p className="py-3 text-sm">
           <Link to="/">
             <span className=" hover:text-blue-600 cursor-pointer">
-              Bosh sahifa
+              {language === "uz" ? "Bosh sahifa" : "Главный"}
             </span>
           </Link>
           <span className="text-gray-400"> / </span>
-          <span className="text-blue-600">Batafsil</span>
+          <span className="text-blue-600">
+            {language === "uz" ? "Batafsil" : "Более"}
+          </span>
         </p>
 
         <div className="flex flex-col gap-y-7">
           <h1 className="text-4xl font-semibold">
-            Uyali polikarbonatning texnik xususiyatlari
+            {language === "uz"
+              ? "Uyali polikarbonatning texnik xususiyatlari"
+              : "Технические характеристики сотового поликарбоната"}
           </h1>
           <Articles />
         </div>

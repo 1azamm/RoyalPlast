@@ -1,4 +1,4 @@
-import React from "react";
+import { useContext } from "react";
 import Title from "../utils/Title";
 
 import box from "../LexanTovar/icons8-box.svg";
@@ -6,29 +6,40 @@ import pay from "../LexanTovar/icons8-wallet-100.png";
 import delivery from "../LexanTovar/payment-and-delivery.jpg";
 import guarantee from "../LexanTovar/icons8-guarantee-100.png";
 import styled from "styled-components";
+import { LocalizationApi } from "../Context/Language";
 // import { Fade } from "react-reveal";
 
 const Page5 = () => {
+  const { language } = useContext(LocalizationApi);
   return (
     // <Fade>
     <CONTAINER className="px-10">
       <Title
-        text={"YETKAZIB BERISH VA TO'LASH"}
+        text={
+          language === "uz" ? "YETKAZIB BERISH VA TO'LASH" : "ДОСТАВКА И ОПЛАТА"
+        }
         position={
           "text-center mb-10 pt-16 underline decoration-[#77b94c] underline-offset-[14px] leading-[55px]"
         }
       />
       <Container2 className="flex justify-between flex-wrap">
         <TextContainer className="flex flex-col gap-y-12 w-[38%]">
-          <FirstH1 className="font-medium text-5xl ">
-            Mintaqaning istalgan nuqtasiga
+          <FirstH1 className="font-medium leading-[55px] text-5xl ">
+            {language === "uz"
+              ? "Mintaqaning istalgan nuqtasiga"
+              : "Доставка в любую точку региона"}
+
             <span className="text-[#5bb521]">
               {" "}
-              24 soat ichida yetkazib berish
+              {language === "uz"
+                ? "24 soat ichida yetkazib berish"
+                : "в течение 24 часов"}
             </span>
           </FirstH1>
           <FirstP className="text-xl lg:text-lg">
-            Zavoddan xavfsiz yetkazib berish kafolatlangan
+            {language === "uz"
+              ? "Zavoddan xavfsiz yetkazib berish kafolatlangan"
+              : "Гарантия безопасной доставки с завода"}
           </FirstP>
         </TextContainer>
         <BoxContainer className="flex justify-between  flex-wrap w-[57%]">
@@ -38,7 +49,9 @@ const Page5 = () => {
           >
             <BOXimg src={box} alt="" width="35%" />
             <p className="text-white text-lg text-center">
-              Buyurtmangizni arizangizdan so'ng darhol jo'natamiz
+              {language === "uz"
+                ? "Buyurtmangizni arizangizdan so'ng darhol jo'natamiz"
+                : "Мы отправим ваш заказ сразу после вашей заявки"}
             </p>
           </Box>
 
@@ -48,7 +61,9 @@ const Page5 = () => {
           >
             <BOXimg src={pay} alt="" />
             <p className="text-white text-lg text-center pt-5">
-              Buyurtmalar uchun qulay to'lov usullari
+              {language === "uz"
+                ? "Buyurtmalar uchun qulay to'lov usullari"
+                : "Удобные способы оплаты заказов"}
             </p>
           </Box>
 
@@ -58,7 +73,9 @@ const Page5 = () => {
           >
             <BOXimg src={guarantee} alt="" width="35%" />
             <p className="text-white text-lg text-center pt-5">
-              Ishlab chiqaruvchining kafolati 15 yil
+              {language === "uz"
+                ? "Ishlab chiqaruvchining kafolati 15 yil"
+                : "Гарантия производителя 15 лет"}
             </p>
           </VariableBox>
         </BoxContainer>
@@ -75,7 +92,9 @@ const Page5 = () => {
           }}
         >
           <SupplierText className="text-3xl w-[50%] text-transparent bg-clip-text bg-gradient-to-t from-sky-100 to-white">
-            Viloyatning istalgan nuqtasiga o'z vaqtida yetkazib beramiz !
+            {language === "uz"
+              ? "Viloyatning istalgan nuqtasiga o'z vaqtida yetkazib beramiz !"
+              : "Доставляем вовремя в любую точку региона !"}
           </SupplierText>
         </Supplier>
 
@@ -85,7 +104,9 @@ const Page5 = () => {
         >
           <BOXimg src={guarantee} alt="" width="30%" />
           <p className="text-white text-lg text-center pt-5">
-            Ishlab chiqaruvchining kafolati 15 yil
+            {language === "uz"
+              ? "Ishlab chiqaruvchining kafolati 15 yil"
+              : "Гарантия производителя 15 лет."}
           </p>
         </VariableBox2>
       </BoxContainer>

@@ -1,10 +1,11 @@
-import React from "react";
+import { useContext } from "react";
 import { Image, Carousel } from "antd";
 import styled from "styled-components";
 import img from "../assets/imgs/royalplast.jpg";
 import img2 from "../assets/imgs/sunnex.jpg";
 import img3 from "../assets/imgs/polynex.jpg";
 import Title from "../utils/Title";
+import { LocalizationApi } from "../Context/Language";
 import "../Styles/Page6.css";
 
 const stil = {
@@ -14,11 +15,12 @@ const stil = {
 };
 
 const Page6 = () => {
+  const { language } = useContext(LocalizationApi);
   return (
     <CONTAINER className="px-10 pt-10 ">
       <TITLE className="mb-16 pt-16">
         <Title
-          text={"Sertifikatlar"}
+          text={language === "uz" ? "Sertifikatlar" : "Сертификаты"}
           position={
             "text-center underline decoration-[#77b94c] underline-offset-[14px] leading-[55px]"
           }

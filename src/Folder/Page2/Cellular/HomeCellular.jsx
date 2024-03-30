@@ -6,7 +6,7 @@ import Button from "../../../utils/Button";
 import Write from "../../../utils/Write";
 import styled from "styled-components";
 
-const PDF = "http://localhost:5173/cellular_polycarbonate/New_catalog_sota.pdf";
+import PDF from "../../../assets/New_catalog_sota.pdf";
 
 const HomeCellular = () => {
   const { language } = useContext(LocalizationApi);
@@ -15,63 +15,53 @@ const HomeCellular = () => {
     setToogle(!toggle);
   };
 
-  const downloadFile = (url) => {
-    if (navigator.userAgent.match(/(iPad|iPhone|iPod)/g)) {
-      window.open(url, "_blank");
-    } else {
-      fetch(url)
-        .then((response) => response.blob())
-        .then((blob) => {
-          const blobUrl = window.URL.createObjectURL(new Blob([blob]));
-          const fileName = url.split("/").pop();
-          const aTag = document.createElement("a");
-          aTag.href = blobUrl;
-          aTag.setAttribute("download", fileName);
-          document.body.appendChild(aTag);
-          aTag.click();
-          aTag.remove();
-        });
-    }
-  };
   const advantages = [
     {
-      title: language === "uz" ? "Xususiy hajmi" : "Уникальное согнутый",
+      title: language === "uz" ? "Xususiy hajmi" : "Частный размер",
       description: "1,19 g/sm³",
     },
     {
-      title: language === "uz" ? "UV himoya qatlami" : "UV-защита слоя -",
-      description: "Mavjud",
+      title: language === "uz" ? "UV himoya qatlami" : "UV-защита слоя",
+      description: language === "uz" ? "Mavjud" : "Есть",
     },
     {
-      title: language === "uz" ? "Yoritish qobiliyati" : "Светопропускание",
-      description: "100% gacha",
+      title:
+        language === "uz" ? "Yoritish qobiliyati" : "Способность освещения",
+      description: language === "uz" ? "100% gacha" : "до 100%",
     },
     {
       title:
         language === "uz"
           ? "Kritik harorat oralig'i"
           : "Критический температурный диапазон",
-      description: "-40˚S dan +120˚S gacha",
+      description:
+        language === "uz" ? "-40˚S dan +120˚S gacha" : "от -40˚С до +120˚С",
     },
     {
       title:
-        language === "uz" ? "Zarar qabul qiluvchilik" : "Устойчивость к удару",
-      description: "G3, (G1 - so'rov bo'yicha)",
+        language === "uz" ? "Zarar qabul qiluvchilik" : "Терпимость к потерям",
+      description:
+        language === "uz"
+          ? "G3, (G1 - so'rov bo'yicha)"
+          : "G3, (G1 - по запросу)",
     },
     {
       title:
         language === "uz"
           ? "Yuqori issiqlik izolyatsiyasi"
-          : "Высокая теплоизоляционные характеристики",
-      description: "Isitish xarajatlarini ikki baravar kamaytiradi",
+          : "Высокая теплоизоляция",
+      description:
+        language === "uz"
+          ? "Isitish xarajatlarini ikki baravar kamaytiradi"
+          : "Снижает расходы на отопление вдвое",
     },
     {
       title: language === "uz" ? "Shaffoflik" : "Прозрачность",
-      description: "82% gacha",
+      description: language === "uz" ? "82% gacha" : "до 82%",
     },
     {
       title: language === "uz" ? "Kafolat:" : "Гарантия:",
-      description: "10 va 15 yil",
+      description: language === "uz" ? "10 va 15 yil" : "10 и 15 лет",
     },
   ];
   return (
@@ -79,42 +69,46 @@ const HomeCellular = () => {
       <p className="py-3 text-sm">
         <Link to="/">
           <span className=" hover:text-blue-600 cursor-pointer">
-            Bosh sahifa
+            {language === "uz" ? "Bosh sahifa" : "Главный"}
           </span>
         </Link>
         <span className="text-gray-400"> / </span>
-        <span className="text-blue-600">Uyali polikarbonat</span>
+        <span className="text-blue-600">
+          {language === "uz" ? "Uyali polikarbonat" : "Сотовый поликарбонат"}
+        </span>
       </p>
       <div className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-4xl mb-8 font-medium underline decoration-[#77b94c] underline-offset-[14px]">
-            Uyali polikarbonat
+            {language === "uz" ? "Uyali polikarbonat" : "Сотовый поликарбонат"}
           </h1>
           <P className="w-[77%] text-lg mb-10">
-            Polimer materiallar turli maqsadlar uchun bino va inshootlarni
-            qurishda keng qo'llaniladi. Uyali polikarbonat - bu ikki yoki uch
-            qatlamli panel bo'lib, ular orasida uzunlamasina
-            qattiqlashtiruvchilar joylashgan. Uyali struktura nisbatan past
-            o'ziga xos tortishish bilan varaqning yuqori mexanik kuchini
-            ta'minlaydi. Uyali polikarbonatning barcha texnik xususiyatlarini
-            tushunish va tushunish uchun uning xususiyatlarini va parametrlarini
-            batafsil ko'rib chiqaylik.
+            {language === "uz"
+              ? "Polimer materiallar turli maqsadlar uchun bino va inshootlarni qurishda keng qo'llaniladi. Uyali polikarbonat - bu ikki yoki uch qatlamli panel bo'lib, ular orasida uzunlamasina qattiqlashtiruvchilar joylashgan. Uyali struktura nisbatan past o'ziga xos tortishish bilan varaqning yuqori mexanik kuchini ta'minlaydi. Uyali polikarbonatning barcha texnik xususiyatlarini  tushunish va tushunish uchun uning xususiyatlarini va parametrlarini batafsil ko'rib chiqaylik."
+              : "Полимерные материалы широко используются при строительстве зданий и сооружений различного назначения. Сотовый поликарбонат представляет собой двух- или трехслойную панель с продольными ребрами жесткости между ними. Ячеистая структура обеспечивает высокую механическую прочность листа при сравнительно невысоком удельном весе. Чтобы разобраться и разобраться во всех технических характеристиках сотового поликарбоната, давайте подробнее рассмотрим его особенности и параметры."}
           </P>
           <div className="flex gap-x-5">
-            <Button
-              id={"btn"}
-              onClick={() => {
-                downloadFile(PDF);
-              }}
-              text={language === "uz" ? "Yuklab olish katalogi" : "Более"}
-              position={
-                "bg-[#5bb521] text-[16px] text-white border-[#5bb521] border-2 text-white hover:text-[#5bb521] hover:shadow-[inset_23rem_0_0_0] hover:bg-transparent hover:shadow-[#5cb5212b] duration-[500ms,800ms] transition-[color,box-shadow] rounded-none lg:hover:text-green-900"
-              }
-            />
+            <a href={PDF} download="Uyali-polikarbonat">
+              <Button
+                id={"btn"}
+                text={
+                  language === "uz"
+                    ? "Yuklab olish katalogi"
+                    : "Скачать каталог"
+                }
+                position={
+                  "bg-[#5bb521] text-[16px] text-white border-[#5bb521] border-2 text-white hover:text-[#5bb521] hover:shadow-[inset_23rem_0_0_0] hover:bg-transparent hover:shadow-[#5cb5212b] duration-[500ms,800ms] transition-[color,box-shadow] rounded-none lg:hover:text-green-900"
+                }
+              />
+            </a>
             <Button
               id={"btn"}
               onClick={handleClick}
-              text={"Distribyutorga aylaning"}
+              text={
+                language === "uz"
+                  ? "Distribyutorga aylaning"
+                  : "Стань дистрибьютором"
+              }
               position="text-[16px] bg-transparent rounded-none hover:text-white"
             />
           </div>
@@ -122,8 +116,10 @@ const HomeCellular = () => {
         <IMG src={img} width="33%" alt="" />
       </div>
       <h1 className="text-3xl mb-5">
-        Uyali polikarbonatning{" "}
-        <span className="font-semibold">afzalliklari:</span>
+        {language === "uz" ? "Uz" : "Сотового поликарбоната"}{" "}
+        <span className="font-semibold">
+          {language === "uz" ? "afzalliklari:" : "преимущества:"}
+        </span>
       </h1>
       <div className="flex justify-between flex-wrap">
         <ul className={`Advantage pt-3 `}>
@@ -152,7 +148,9 @@ const HomeCellular = () => {
         </ul>
       </div>
       <Write
-        text={"Distribyutorga aylaning"}
+        text={
+          language === "uz" ? "Distribyutorga aylaning" : "Стань дистрибьютором"
+        }
         modal={toggle}
         setModal={setToogle}
       />

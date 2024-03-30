@@ -1,8 +1,10 @@
-import React from "react";
+import { useContext } from "react";
 import { cellularColors } from "../../../utils/Tovar";
 import styled from "styled-components";
+import { LocalizationApi } from "../../../Context/Language";
 
 const ColorCellular = () => {
+  const { language } = useContext(LocalizationApi);
   const renderColorItems = (colors) => {
     return colors.map((color, index) => (
       <Container key={index} className="flex flex-col items-center gap-y-3">
@@ -11,7 +13,9 @@ const ColorCellular = () => {
           src={color.image}
           alt={color.name}
         />
-        <Span className="text-lg">{color.name}</Span>
+        <Span className="text-lg">
+          {language === "uz" ? color.name : color.nameRU}
+        </Span>
       </Container>
     ));
   };
@@ -19,7 +23,9 @@ const ColorCellular = () => {
   return (
     <div className="mt-20">
       <H1 className="text-3xl mb-20 font-semibold underline decoration-[#77b94c] underline-offset-[14px]">
-        UYALI POLIKARBONAT - RANG VARIANTLARI
+        {language === "uz"
+          ? "UYALI POLIKARBONAT - RANG VARIANTLARI"
+          : "СОТОВЫЙ ПОЛИКАРБОНАТ – ЦВЕТОВЫЕ ВАРИАНТЫ"}
       </H1>
       <Color className="text-center flex flex-wrap gap-6 gap-y-10">
         {renderColorItems(cellularColors)}

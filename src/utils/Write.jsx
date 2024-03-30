@@ -90,8 +90,9 @@ const Write = ({ text, modal, setModal }) => {
             <div className="flex mt-5 flex-col items-center justify-center pt-2">
               <h1 className="text-3xl font-medium">{text}</h1>
               <p className="pText text-2xl text-center w-[80%] font-light pt-1">
-                Kontaktlaringizni qoldiring va bizning mutaxassisimiz siz bilan
-                bog'lanadi:
+                {language === "uz"
+                  ? " Kontaktlaringizni qoldiring va bizning mutaxassisimiz siz bilan bog'lanadi:"
+                  : "Оставьте свои контакты и наш специалист свяжется с вами:"}
               </p>
               <form onSubmit={Submit} className="flex flex-col gap-y-2 mt-5">
                 <input
@@ -99,7 +100,9 @@ const Write = ({ text, modal, setModal }) => {
                   name="name"
                   value={formData.name}
                   onChange={Change}
-                  placeholder="Ismingizni kiriting"
+                  placeholder={
+                    language === "uz" ? "Ismingizni kiriting" : "Имя"
+                  }
                   className="message p-2 max-w-[100%] rounded outline-[#00aeff] outline-offset-[3px]"
                 />
                 <input
@@ -116,14 +119,20 @@ const Write = ({ text, modal, setModal }) => {
                   name="city"
                   value={formData.city}
                   onChange={Change}
-                  placeholder="Shaharni kiriting"
+                  placeholder={
+                    language === "uz" ? "Shaharni kiriting" : "Город"
+                  }
                   className="message p-2 rounded outline-[#00aeff] outline-offset-[3px]"
                 />
                 <textarea
                   name="question"
                   value={formData.question}
                   onChange={Change}
-                  placeholder="Savolingiz bo'lsa shu yerga yozing"
+                  placeholder={
+                    language === "uz"
+                      ? "Savolingiz bo'lsa shu yerga yozing"
+                      : "Вопрос"
+                  }
                   className="message p-2 rounded outline-[#00aeff] outline-offset-[3px]"
                   cols="40"
                   rows="7"

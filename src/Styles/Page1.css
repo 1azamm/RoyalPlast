@@ -45,7 +45,7 @@
     background-size: cover;
     background-position: center center;
     &::before {
-      height: 870px;
+      height: 770px;
     }
   }
   @keyframes FadeUp {

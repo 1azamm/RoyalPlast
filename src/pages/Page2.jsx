@@ -33,14 +33,14 @@ const Page2 = () => {
       ),
       hoverText: (
         <div className="ImgContent flex flex-col gap-y-5 p-10 bg-blue-900 opacity-0 h-[320px] hover:opacity-70 transition ">
-          <h1 className="font-semibold text-[22px] w-[30%] text-white opacity-100">
+          <HoverH1 className="font-semibold text-[22px] w-[30%] text-white opacity-100">
             {language === "uz" ? "Uyali Polikarbonat" : "Сотовый поликарбонат"}
-          </h1>
-          <p className="text-white opacity-100 text-sm font-light">
+          </HoverH1>
+          <HoverP className="text-white opacity-100 text-sm font-light">
             {language === "uz"
               ? " Paxta kabi yengil, uyali polikarbonat panellari turli xil soyalarda va shaffoflik darajasida mavjud bo'lib, pollar, qoplamalar va oynalar tizimlarini qurishda keng qo'llaniladi."
               : "Легкие панели сотового поликарбоната доступны в различных оттенках и степенях прозрачности и широко используются при строительстве полов, облицовки и систем остекления."}
-          </p>
+          </HoverP>
         </div>
       ),
       link: "/cellular-polycarbonate/",
@@ -57,16 +57,16 @@ const Page2 = () => {
       ),
       hoverText: (
         <div className="ImgContent flex flex-col gap-y-5 p-10 bg-blue-900 opacity-0 h-[320px] hover:opacity-70 transition ">
-          <h1 className="font-semibold text-[22px]  text-white opacity-100">
+          <HoverH1 className="font-semibold text-[22px] text-white opacity-100">
             {language === "uz"
               ? "Profillangan polikarbonat"
               : "Профилированный поликарбонат"}
-          </h1>
-          <p className="text-white opacity-100 text-sm font-light">
+          </HoverH1>
+          <HoverP className="text-white opacity-100 text-sm font-light">
             {language === "uz"
               ? "Yupqa, shaffof, moslashuvchan va bardoshli profilli monolit polikarbonat plitalari shishaning yarmiga teng va an'anaviy alternativlarga nisbatan bir qator afzalliklarga ega: 20 baravar yuqori zarba qarshiligi, eng yuqori yorug'lik o'tkazuvchanligi, eng past sarg'ish indeksi, eng yuqori yuk ko'tarish qobiliyati va shamol tomonidan ko'tarilish uchun eng yuqori qarshilik."
               : "Тонкие, прозрачные, гибкие и прочные листы профилированного монолитного поликарбоната весят вдвое меньше стекла, обладают рядом преимуществ по сравнению с традиционными альтернативами: до 20 раз большая ударопрочность, самая высокая светопроницаемость, самый низкий индекс пожелтения, самая высокая предельная нагрузка и самая высокая устойчивость к поднятию ветром."}
-          </p>
+          </HoverP>
         </div>
       ),
       link: "/profiled-polycarbonate/",
@@ -81,14 +81,14 @@ const Page2 = () => {
       ),
       hoverText: (
         <div className="ImgContent flex flex-col gap-y-5 p-10 bg-blue-900 opacity-0 h-[320px] hover:opacity-70 transition ">
-          <h1 className="font-semibold text-[22px] w-[30%] text-white opacity-100">
+          <HoverH1 className="font-semibold text-[22px] w-[30%] text-white opacity-100">
             {language === "uz" ? "Aksessuarlar" : "Аксессуары"}
-          </h1>
-          <p className="text-white opacity-100 text-sm font-light">
+          </HoverH1>
+          <HoverP className="text-white opacity-100 text-sm font-light">
             {language === "uz"
               ? "Plitalarni bir-biriga ulash, siqish va muhrlash uchun komponentlar, shuningdek uyali va monolit polikarbonat plitalari bilan ishlash uchun moslashtirilgan maxsus maqsadlar uchun qo'shimcha aksessuarlar."
               : "Компоненты для соединения, зажима и герметизации плит, а также дополнительные аксессуары специального назначения, приспособленные для работы с плитами сотового и монолитного поликарбоната."}
-          </p>
+          </HoverP>
         </div>
       ),
       link: "/accessories/",
@@ -174,13 +174,15 @@ const BackgroundDiv = styled.div`
     width: 420px !important;
     height: 280px !important;
   }
-  @media only screen and (max-width: 412px) {
-    width: 400px !important;
+  @media only screen and (max-width: 430px) {
+    width: 410px !important;
     height: 270px !important;
   }
   @media only screen and (max-width: 412px) {
+    width: 390px !important;
+  }
+  @media only screen and (max-width: 390px) {
     width: 370px !important;
-    height: 270px !important;
   }
 `;
 
@@ -226,5 +228,23 @@ const ImgHoverText = styled.div`
 
   &.visible {
     opacity: 1;
+  }
+  @media only screen and (max-width: 500px) {
+    top: 20px;
+  }
+  @media only screen and (max-width: 430px) {
+    top: 0px;
+  }
+`;
+
+const HoverH1 = styled.h1`
+  @media only screen and (max-width: 500px) {
+    font-size: 20px;
+  }
+`;
+
+const HoverP = styled.p`
+  @media only screen and (max-width: 500px) {
+    font-size: 13px;
   }
 `;
