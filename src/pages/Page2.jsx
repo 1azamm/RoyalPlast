@@ -166,7 +166,7 @@ const BackgroundDiv = styled.div`
 
   &:hover {
     cursor: pointer;
-    transition: all 1s;
+    transition: all 0.3s;
     transform: scale(1.1);
   }
 
@@ -197,7 +197,7 @@ const ImgTextContainer = styled.h1`
   padding: 20px;
   display: flex;
   align-items: end;
-  transition: 0.2s;
+  transition: 0.1s;
   color: black;
   font-size: 24px;
   font-weight: 500;
@@ -223,7 +223,7 @@ const ImgHoverText = styled.div`
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: opacity 0.5s;
+  transition: opacity 0.1s;
   z-index: 1;
 
   &.visible {

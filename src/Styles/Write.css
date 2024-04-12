@@ -49,7 +49,7 @@ body.active-modal {
 @media only screen and (max-width: 1000px) {
   .modal-content {
     width: 50%;
-    height: 650px;
+    height: 560px;
     top: 55%;
   }
   .message {
@@ -59,7 +59,7 @@ body.active-modal {
 
 @media only screen and (max-width: 755px) {
   .modal-content {
-    height: 580px;
+    height: 520px;
   }
   .pText {
     font-size: 18px !important;
@@ -86,10 +86,12 @@ body.active-modal {
 @media only screen and (max-width: 550px) {
   .modal-content {
     width: 85%;
+    height: 510px;
   }
 }
 @media only screen and (max-width: 430px) {
   .modal-content {
     top: 47%;
+    height: 520px;
   }
 }

@@ -4,24 +4,20 @@ import "./Header.css";
 import icon from "../assets/logotip/s_header__logo.svg";
 import sun from "../assets/dark-mode/sun.png";
 import moon from "../assets/dark-mode/moon.png";
-import telegram from "../assets/network/tg.png";
-import instagram from "../assets/network/insta.png";
-import facebook from "../assets/network/facebook.png";
-import gmail from "../assets/network/gmail.png";
 
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import { AlignLeftOutlined, AlignRightOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { Link } from "react-scroll";
 import { Link as RouterLink } from "react-router-dom";
+import PopupMenu from "../utils/PopupMenu";
 
 const Header = () => {
   // Fixed
-
   const [fix, setFix] = useState(false);
 
   useEffect(() => {
     const setFixed = () => {
-      setFix(window.scrollY >= 20);
+      setFix(window.scrollY >= 5);
     };
 
     const handleScroll = () => {
@@ -35,35 +31,14 @@ const Header = () => {
     };
   }, []);
 
-  // Fixed
-
-  // PopUp-menu
-
-  const [collapsed, setCollapsed] = useState(true);
-
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-    const popupMenu = document.querySelector(".popup-menu");
-
-    if (popupMenu) {
-      popupMenu.classList.toggle("active");
-    }
-  };
-
-  // PopUp-menu
-
-  //Language-mode
-
-  const { language, setLanguage } = useContext(LocalizationApi); // Default language is Uzbek (uz)
+  // Language-mode
+  const { language, setLanguage } = useContext(LocalizationApi);
 
   const handleLanguageChange = (e) => {
     setLanguage(e.target.value);
   };
 
-  //Language-mode
-
-  //Dark-mode
-
+  // Dark-mode
   const toggleDarkMode = () => {
     const body = document.querySelector(".body");
     const darkModeImages = document.querySelectorAll(".dark-mode img");
@@ -75,172 +50,76 @@ const Header = () => {
     });
   };
 
-  //Dark-mode
-
-  //Network-href
-
+  // Network-href
   const handlePhoneNumberClick = () => {
     window.location.href = "tel:+998950000044";
   };
 
-  const handleNetworkClick = (index) => {
-    let url = "";
-    switch (index) {
-      case 0:
-        url = "https://t.me/leksan_nomer1";
-        break;
-      case 1:
-        url = "https://instagram.com/rossiyskiy_leksan.uz?utm_medium=copy_link";
-        break;
-      case 2:
-        url = "mailto:royalplast1977@gmail.com";
-        break;
-      case 3:
-        url = "#facebook";
-        break;
-      default:
-        break;
-    }
-
-    if (url) {
-      window.open(url);
-    }
+  // Popup Menu
+  const [collapsed, setCollapsed] = useState(false);
+  const handleClick = () => {
+    setCollapsed(!collapsed);
   };
-
-  //Network-href
-
-  //Btn-active
-
-  const [activeButton] = useState("");
-
-  //Btn-active
 
   return (
     <>
-      <div className="fixedColor z-50">
-        <div className={fix ? "head fixed" : "head"}>
-          <Link
-            to="page1"
-            spy={true}
-            smooth={true}
-            offset={-130}
-            duration={500}
-          >
-            <RouterLink to="/">
-              <img className="icon cursor-pointer" src={icon} alt="" />
-            </RouterLink>
-          </Link>
+      <div
+        className={"Background z-[999] " + (fix ? "fixedColor" : "Background")}
+      >
+        <Link to="page1" spy={true} smooth={true} offset={-130} duration={500}>
+          <RouterLink to="/">
+            <img className="icon cursor-pointer" src={icon} alt="" />
+          </RouterLink>
+        </Link>
 
-          <div className="flexItem">
-            <div className="headText">
-              <Link
-                to="page1"
-                spy={true}
-                smooth={true}
-                offset={-130}
-                duration={500}
-                className={`btn1 ${
-                  activeButton === 0 ? "active" : ""
-                } font-bold`}
-              >
-                <RouterLink to="/">
-                  {language === "uz" ? "BOSH SAHIFA" : "ГЛАВНАЯ"}
-                </RouterLink>
-              </Link>
-              <Link
-                to="page2"
-                spy={true}
-                smooth={true}
-                offset={-105}
-                duration={500}
-                className={`btn1 ${
-                  activeButton === 1 ? "active" : ""
-                } font-bold`}
-              >
-                <RouterLink to="/">
-                  {language === "uz" ? "MAHSULOTLAR" : "ТОВАРЫ"}
-                </RouterLink>
-              </Link>
-              <Link
-                to="page4"
-                spy={true}
-                smooth={true}
-                offset={-105}
-                duration={500}
-                className={`btn1 ${
-                  activeButton === 2 ? "active" : ""
-                } font-bold`}
-              >
-                <RouterLink to="/">
-                  {language === "uz" ? "ALOQA" : "КОНТАКТЫ"}
-                </RouterLink>
-              </Link>
-            </div>
-            <select
-              className="language"
-              onChange={handleLanguageChange}
-              value={language}
+        <div className="flexItem">
+          <div className="headText">
+            <Link
+              to="page1"
+              spy={true}
+              smooth={true}
+              offset={-130}
+              duration={500}
+              className="btn1 font-bold"
             >
-              <option value="uz">UZ</option>
-              <option value="ru">RU</option>
-            </select>
-            <div className="dark-mode" onClick={toggleDarkMode}>
-              <img src={sun} alt="" />
-              <img src={moon} alt="" />
-            </div>
-            <div className="menu">
-              <Button className="btn" type="primary" onClick={toggleCollapsed}>
-                {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-              </Button>
-            </div>
+              <RouterLink to="/">
+                {language === "uz" ? "BOSH SAHIFA" : "ГЛАВНАЯ"}
+              </RouterLink>
+            </Link>
+            <Link
+              to="page2"
+              spy={true}
+              smooth={true}
+              offset={-105}
+              duration={500}
+              className="btn1 font-bold"
+            >
+              <RouterLink to="/">
+                {language === "uz" ? "MAHSULOTLAR" : "ТОВАРЫ"}
+              </RouterLink>
+            </Link>
+            <Link
+              to="page4"
+              spy={true}
+              smooth={true}
+              offset={-105}
+              duration={500}
+              className="btn1 font-bold"
+            >
+              <RouterLink to="/">
+                {language === "uz" ? "ALOQA" : "КОНТАКТЫ"}
+              </RouterLink>
+            </Link>
+          </div>
 
-            <div className="animation">
-              <button className="nomer" onClick={handlePhoneNumberClick}>
+          <div className="containerNomer2 w-[225px]">
+            <div className="animation2">
+              <button className="nomer2" onClick={handlePhoneNumberClick}>
                 <a href="tel:+998950000044">+998 95 000-00-44</a>
               </button>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div className="popup-menu z-50">
-        <div className="text">
-          <Link
-            to="page1"
-            spy={true}
-            smooth={true}
-            offset={-130}
-            duration={500}
-            className={`btn1 prgrf ${
-              activeButton === 0 ? "active" : ""
-            } font-bold`}
-          >
-            {language === "uz" ? "BOSH SAHIFA" : "ГЛАВНАЯ"}
-          </Link>
-          <Link
-            to="page2"
-            spy={true}
-            smooth={true}
-            offset={-105}
-            duration={500}
-            className={`btn1 prgrf ${
-              activeButton === 1 ? "active" : ""
-            } font-bold`}
-          >
-            {language === "uz" ? "MAHSULOTLAR" : "ТОВАРЫ"}
-          </Link>
-          <Link
-            to="page4"
-            spy={true}
-            smooth={true}
-            offset={-105}
-            duration={500}
-            className={`btn1 prgrf ${
-              activeButton === 2 ? "active" : ""
-            } font-bold`}
-          >
-            {language === "uz" ? "ALOQA" : "КОНТАКТЫ"}
-          </Link>
           <select
             className="language"
             onChange={handleLanguageChange}
@@ -249,22 +128,25 @@ const Header = () => {
             <option value="uz">UZ</option>
             <option value="ru">RU</option>
           </select>
-          <div className="flex-network">
-            <img src={telegram} onClick={() => handleNetworkClick(0)} alt="" />
-            <img src={instagram} onClick={() => handleNetworkClick(1)} alt="" />
-            <img src={gmail} onClick={() => handleNetworkClick(2)} alt="" />
-            <img src={facebook} onClick={() => handleNetworkClick(3)} alt="" />
+          <div className="dark-mode" onClick={toggleDarkMode}>
+            <img src={sun} alt="" />
+            <img src={moon} alt="" />
           </div>
-        </div>
-
-        <div style={{ height: "150px" }}>
-          <div className="animation2">
-            <button className="nomer" onClick={handlePhoneNumberClick}>
-              <a href="tel:+998909893111">+998 95 000-00-44</a>
-            </button>
+          <div className="menu">
+            <Button className="btn" type="primary" onClick={handleClick}>
+              {collapsed ? <AlignLeftOutlined /> : <AlignRightOutlined />}
+            </Button>
+          </div>
+          <div className="containerNomer1 w-[225px] h-[60px] flex items-center justify-center">
+            <div className="animation1">
+              <button className="nomer1" onClick={handlePhoneNumberClick}>
+                <a href="tel:+998950000044">+998 95 000-00-44</a>
+              </button>
+            </div>
           </div>
         </div>
       </div>
+      <PopupMenu modal={collapsed} setModal={setCollapsed} />
     </>
   );
 };

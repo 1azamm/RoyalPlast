@@ -36,7 +36,7 @@ const More = () => {
 
   return (
     <>
-      <Container id="scroll" className="pt-[100px] px-20">
+      <Container id="scroll" className="pt-[85px] px-20">
         <p className="py-3 text-sm">
           <Link to="/">
             <span className=" hover:text-blue-600 cursor-pointer">
@@ -96,13 +96,13 @@ export default More;
 
 const Container = styled.div`
   @media only screen and (max-width: 1200px) {
-    padding: 100px 40px 0 40px;
+    padding: 80px 40px 0 40px;
   }
   @media only screen and (max-width: 550px) {
-    padding: 100px 20px 0 20px;
+    padding: 80px 20px 0 20px;
   }
   @media only screen and (max-width: 430px) {
-    padding: 100px 10px 0 10px;
+    padding: 80px 10px 0 10px;
   }
 `;
 

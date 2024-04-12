@@ -9,6 +9,7 @@ import img2 from "../LexanTovar/razmery-teplits-iz-polikarbonata-optimalnaya-shi
 import img3 from "../LexanTovar/s_applications_img_item3.png";
 import img4 from "../LexanTovar/339_original.jpg";
 import img5 from "../LexanTovar/issiqxona.jpg";
+import { Link } from "react-router-dom";
 
 const images = [
   {
@@ -17,6 +18,7 @@ const images = [
     altRU: "Нефы",
     width: "724px",
     height: "350px",
+    link: "/naveslar/",
   },
   {
     src: img2,
@@ -24,6 +26,7 @@ const images = [
     altRU: "Теплицы",
     width: "333px",
     height: "350px",
+    link: "/issiqxonalar/",
   },
   {
     src: img3,
@@ -31,6 +34,7 @@ const images = [
     altRU: "Беседки",
     width: "333px",
     height: "350px",
+    link: "/gazebos/",
   },
   {
     src: img4,
@@ -38,6 +42,7 @@ const images = [
     altRU: "Препятствия",
     width: "724px",
     height: "400px",
+    link: "/tosiqlar/",
   },
   {
     src: img5,
@@ -45,6 +50,7 @@ const images = [
     altRU: "Cельское хозяйство",
     width: "695px",
     height: "400px",
+    link: "/qishloq-xojaligi/",
   },
 ];
 
@@ -68,56 +74,65 @@ const Page3 = () => {
       <div className="Content1 flex justify-between flex-wrap xl:pb-7 lg:pb-2">
         {images.slice(0, 3).map((image, index) => (
           <div className="overflow-hidden flex" key={index}>
-            <ImageContainer1
-              key={index}
-              url={image.src}
-              width={image.width}
-              height={image.height}
-              onMouseEnter={() => setHoveredIndex(index + 1)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              hovered={hoveredIndex === index + 1}
-            >
-              <OverlayText hovered={hoveredIndex === index + 1}>
-                {language === "uz" ? image.alt : image.altRU}
-              </OverlayText>
-            </ImageContainer1>
+            <Link className="overflow-hidden flex" to={image.link} key={index}>
+              <ImageContainer1
+                onClick={() => window.scrollTo({ top: 0, behavior: "auto" })}
+                key={index}
+                url={image.src}
+                width={image.width}
+                height={image.height}
+                onMouseEnter={() => setHoveredIndex(index + 1)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                hovered={hoveredIndex === index + 1}
+              >
+                <OverlayText hovered={hoveredIndex === index + 1}>
+                  {language === "uz" ? image.alt : image.altRU}
+                </OverlayText>
+              </ImageContainer1>
+            </Link>
           </div>
         ))}
       </div>
       <div className="Content2 flex justify-between flex-wrap">
         {images.slice(3, 4).map((image, index) => (
           <div className="overflow-hidden flex flex-wrap" key={index}>
-            <ImageContainer
-              key={index}
-              url={image.src}
-              width={image.width}
-              height={image.height}
-              onMouseEnter={() => setHoveredIndex(index + 4)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              hovered={hoveredIndex === index + 4}
-            >
-              <OverlayText hovered={hoveredIndex === index + 4}>
-                {language === "uz" ? image.alt : image.altRU}
-              </OverlayText>
-            </ImageContainer>
+            <Link className="overflow-hidden flex" to={image.link} key={index}>
+              <ImageContainer
+                onClick={() => window.scrollTo({ top: 0, behavior: "auto" })}
+                key={index}
+                url={image.src}
+                width={image.width}
+                height={image.height}
+                onMouseEnter={() => setHoveredIndex(index + 4)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                hovered={hoveredIndex === index + 4}
+              >
+                <OverlayText hovered={hoveredIndex === index + 4}>
+                  {language === "uz" ? image.alt : image.altRU}
+                </OverlayText>
+              </ImageContainer>
+            </Link>
           </div>
         ))}
 
         {images.slice(4, 5).map((image, index) => (
           <div className="overflow-hidden flex flex-wrap" key={index}>
-            <ImageContainer
-              key={index}
-              url={image.src}
-              width={image.width}
-              height={image.height}
-              onMouseEnter={() => setHoveredIndex(index + 5)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              hovered={hoveredIndex === index + 5}
-            >
-              <OverlayText hovered={hoveredIndex === index + 5}>
-                {language === "uz" ? image.alt : image.altRU}
-              </OverlayText>
-            </ImageContainer>
+            <Link className="overflow-hidden flex" to={image.link} key={index}>
+              <ImageContainer
+                onClick={() => window.scrollTo({ top: 0, behavior: "auto" })}
+                key={index}
+                url={image.src}
+                width={image.width}
+                height={image.height}
+                onMouseEnter={() => setHoveredIndex(index + 5)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                hovered={hoveredIndex === index + 5}
+              >
+                <OverlayText hovered={hoveredIndex === index + 5}>
+                  {language === "uz" ? image.alt : image.altRU}
+                </OverlayText>
+              </ImageContainer>
+            </Link>
           </div>
         ))}
       </div>
@@ -142,7 +157,7 @@ const ImageContainer1 = styled.div`
   background-size: cover;
   overflow: hidden;
   cursor: pointer;
-  transition: all 1s;
+  transition: all 0.3s;
   transform: ${(props) => (props.hovered ? "scale(1.1)" : "scale(1)")};
 
   @media (max-width: 1250px) {
@@ -194,7 +209,7 @@ const ImageContainer = styled.div`
   background-size: cover;
   overflow: hidden;
   cursor: pointer;
-  transition: all 1s;
+  transition: all 0.3s;
   transform: ${(props) => (props.hovered ? "scale(1.1)" : "scale(1)")};
 
   @media (max-width: 1250px) {

@@ -133,7 +133,7 @@ const Write = ({ text, modal, setModal }) => {
                       ? "Savolingiz bo'lsa shu yerga yozing"
                       : "Вопрос"
                   }
-                  className="message p-2 rounded outline-[#00aeff] outline-offset-[3px]"
+                  className="message h-[120px] p-2 rounded outline-[#00aeff] outline-offset-[3px]"
                   cols="40"
                   rows="7"
                 ></textarea>

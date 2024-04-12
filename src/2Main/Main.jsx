@@ -12,7 +12,7 @@ import Page6 from "../pages/Page6";
 const Main = () => {
   return (
     <>
-      <Container className="z-10 m-auto pt-[93px]">
+      <Container className="z-10 m-auto pt-[90px]">
         <ContainerPage1 className=" pb-8">
           <Page1 />
         </ContainerPage1>

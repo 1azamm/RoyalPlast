@@ -89,13 +89,13 @@ const Page1 = () => {
   return (
     <>
       <Container id="page1" className="flex bg">
-        <div className="text w-[50%] pl-5 pr-5">
+        <Inset className="text w-[50%] pl-5 pr-5">
           <FirstText className="flex items-center gap-x-10 ">
-            <RoyalPlast className="text-3xl font-bold">
+            <RoyalPlast className="text-2xl font-bold">
               <span className="text-[#179bd7]">Royal </span>
               <span className="text-[#77b94c]">Plast </span>
             </RoyalPlast>
-            <FirstP className="text-gray-700 text-sm">
+            <FirstP className="text-[gray-600] text-sm">
               {language === "uz"
                 ? "Eng yirik polikarbonat ishlab chiqarish zavodi"
                 : "Крупнейший завод по производству поликарбоната"}
@@ -147,7 +147,7 @@ const Page1 = () => {
             />
             <Play src={play} onClick={() => setOpen(true)}></Play>
           </PlayContainer>
-        </div>
+        </Inset>
         <IMG src={img1} alt="" className="w-[50%]" />
         <Write
           text={language === "uz" ? "Murojaat" : "Обращаться"}
@@ -162,15 +162,28 @@ const Page1 = () => {
 export default Page1;
 
 const Container = styled.div`
-  @media only screen and (max-width: 1000px) {
-    position: relative;
-    top: -10px;
+  position: relative;
+  top: -10px !important;
+
+  @media only screen and (max-width: 700px) {
+    top: -17px !important;
   }
   @media only screen and (max-width: 550px) {
-    top: -17px;
+    top: -27px !important;
+  }
+  @media only screen and (max-width: 490px) {
+    top: -37px !important;
   }
   @media only screen and (max-width: 430px) {
-    top: -8px;
+    top: -17px !important;
+  }
+`;
+
+const Inset = styled.div`
+  @media only screen and (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -181,9 +194,10 @@ const IMG = styled.img`
 `;
 
 const FirstText = styled.div`
+  padding-top: 10px;
   @media only screen and (max-width: 1000px) {
-    padding-top: 10px;
-    column-gap: 10px;
+    display: flex;
+    flex-direction: column;
   }
   @media only screen and (max-width: 700px) {
     display: flex;
@@ -193,8 +207,9 @@ const FirstText = styled.div`
 
 const FirstP = styled.p`
   @media only screen and (max-width: 1000px) {
-    color: white !important;
+    color: #e7dfdf !important;
     font-weight: 400 !important;
+    text-align: center !important;
   }
 `;
 
@@ -215,7 +230,8 @@ const H1 = styled.h1`
   }
   @media only screen and (max-width: 1000px) {
     font-size: 35px;
-    margin-top: 20px;
+    margin-top: 30px;
+    text-align: center;
   }
 `;
 const P2 = styled.p`
@@ -232,12 +248,13 @@ const P2 = styled.p`
 `;
 const P3 = styled.p`
   @media only screen and (max-width: 1000px) {
-    padding-top: 0;
-    color: #b2b2b2 !important;
+    padding: 10px 0;
+    color: #e7dfdf !important;
     font-weight: 300 !important;
     font-size: 15px;
+    text-align: center;
   }
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 600px) {
     display: none;
   }
 `;
@@ -247,15 +264,16 @@ const ButtonContainer = styled.div`
     padding-top: 50px;
   }
   @media only screen and (max-width: 1000px) {
-    padding-top: 10px;
+    padding-top: 20px;
   }
 `;
 
 const InfoContainer = styled.div`
   @media only screen and (max-width: 1200px) {
-    padding-top: 0px;
+    padding-top: 40px;
     width: 100%;
   }
+
   @media only screen and (max-width: 555px) {
     margin-top: 15px;
   }
@@ -265,6 +283,14 @@ const INFO = styled.div`
   @media only screen and (max-width: 1200px) {
     width: 100%;
     gap: 10px !important;
+  }
+  @media only screen and (max-width: 1000px) {
+    width: 45%;
+    padding-top: 20px;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    padding: 0;
   }
 `;
 
@@ -288,9 +314,7 @@ const PlayContainer = styled.div`
   @media only screen and (max-width: 1000px) {
     display: block;
   }
-  @media only screen and (max-width: 800px) {
-    margin-top: 10px;
-  }
+
   @media only screen and (max-width: 555px) {
     margin-top: 25px;
   }

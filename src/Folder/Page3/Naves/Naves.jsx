@@ -1,16 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import { Link as Scroll } from "react-scroll";
-import "./Cellular.css";
-import TypeCellular from "./TypeCellular";
-import ColorCellular from "./ColorCellular";
-import Page3 from "../../../pages/Page3";
-import CarouselCallular from "./CarouselCallular";
-import Page6 from "../../../pages/Page6";
-import HomeCellular from "./HomeCellular";
-import Page5 from "../../../pages/Page5";
+import { LocalizationApi } from "../../../Context/Language";
 import styled from "styled-components";
+import Part1 from "./Part1";
+import Part2 from "./Part2";
+import Part3 from "./Part3";
+import Part4 from "./Part4";
+import Part5 from "./Part5";
+import Part6 from "./Part6";
 
-const Cellular = () => {
+const Naves = () => {
+  const { language } = useContext(LocalizationApi);
   const [fix, setFix] = useState(false);
 
   useEffect(() => {
@@ -28,20 +29,32 @@ const Cellular = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
     <>
       <Container id="scroll" className="pt-[85px] px-20">
-        <HomeCellular />
-        <hr className="border-black border-1 mt-10" />
-        <TypeCellular />
-        <ColorCellular />
-        <hr className="border-black mt-10" />
-      </Container>
-      <Page3 />
-      <CarouselCallular />
-      <Page5 />
-      <Page6 />
+        <p className="py-3 text-sm ">
+          <Link to="/">
+            <span className=" hover:text-blue-600 cursor-pointer">
+              {language === "uz" ? "Bosh sahifa" : "Главный"}
+            </span>
+          </Link>
+          <span className="text-gray-400"> / </span>
+          <span className="text-blue-600">
+            {" "}
+            {language === "uz" ? "Naveslar" : "Нефы"}
+          </span>
+        </p>
 
+        <main className="flex flex-col gap-y-24">
+          <Part1 />
+          <Part2 />
+          <Part3 />
+          <Part4 />
+          <Part5 />
+          <Part6 />
+        </main>
+      </Container>
       <div className={fix ? "flex justify-end p-2" : "hidden"}>
         <Scroll
           to="scroll"
@@ -60,7 +73,7 @@ const Cellular = () => {
   );
 };
 
-export default Cellular;
+export default Naves;
 
 const Container = styled.div`
   @media only screen and (max-width: 1200px) {
