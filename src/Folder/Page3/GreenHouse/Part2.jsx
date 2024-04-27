@@ -25,8 +25,8 @@ const Part2 = () => {
 
   return (
     <div className="flex justify-between flex-wrap">
-      <div className="w-[48%]">
-        <h1 className="text-4xl mb-8 font-medium">
+      <div className="lg:w-[48%] md:w-[100%]">
+        <h1 className="text-4xl mb-8 font-medium underline decoration-[#77b94c] underline-offset-[14px] max-[500px]:text-3xl max-[500px]:font-semibold max-[1024px]:leading-[52px] max-[500px]:leading-[50px]">
           {language === "uz"
             ? "Polikarbonat issiqxonasi uchun polimerni qanday tanlash mumkin?"
             : "Как выбрать полимер для теплицы из поликарбоната?"}
@@ -37,7 +37,11 @@ const Part2 = () => {
           </P>
         ))}
       </div>
-      <img className="w-[50%]" src={advantage} alt="" />
+      <img
+        className="lg:w-[50%] md:w-[100%] max-[1024px]:pt-5"
+        src={advantage}
+        alt=""
+      />
     </div>
   );
 };

@@ -24,10 +24,10 @@ const Part2 = () => {
   };
 
   return (
-    <div className="flex justify-between flex-wrap">
-      <img className="w-[50%]" src={advantage} alt="" />
-      <div className="w-[48%]">
-        <h1 className="text-4xl mb-8 font-medium">
+    <div className="flex justify-between lg:flex-row md:flex-col-reverse sm:flex-col-reverse max-[640px]:flex-col-reverse flex-wrap">
+      <img className="lg:w-[50%] md:w-[100%]" src={advantage} alt="" />
+      <div className="lg:w-[48%] md:w-[100%]">
+        <h1 className="text-4xl mb-8 font-medium underline decoration-[#77b94c] underline-offset-[14px] max-[500px]:text-3xl max-[500px]:font-semibold max-[500px]:leading-[50px]">
           {language === "uz"
             ? "Polikarbonatning afzalliklari"
             : "Преимущества поликарбоната"}

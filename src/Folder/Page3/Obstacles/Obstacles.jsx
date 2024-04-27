@@ -5,12 +5,11 @@ import { LocalizationApi } from "../../../Context/Language";
 import styled from "styled-components";
 import Part1 from "./Part1";
 import Part2 from "./Part2";
-import Part3 from "./Part3";
-import Part4 from "./Part4";
-import Part5 from "./Part5";
-import Part6 from "./Part6";
 
-const Naves = () => {
+import Part5 from "../Naves/Part5";
+import Part6 from "../Naves/Part6";
+
+const Obstacles = () => {
   const { language } = useContext(LocalizationApi);
   const [fix, setFix] = useState(false);
 
@@ -42,15 +41,14 @@ const Naves = () => {
           <span className="text-gray-400"> / </span>
           <span className="text-blue-600">
             {" "}
-            {language === "uz" ? "Naveslar" : "Нефы"}
+            {language === "uz" ? "To'siqlar" : "Поликарбонат для забора"}
           </span>
         </p>
 
         <main className="flex flex-col lg:gap-y-24 md:gap-y-10 sm:gap-y-10 max-[640px]:gap-y-10">
           <Part1 />
           <Part2 />
-          <Part3 />
-          <Part4 />
+
           <Part5 />
           <Part6 />
         </main>
@@ -73,7 +71,7 @@ const Naves = () => {
   );
 };
 
-export default Naves;
+export default Obstacles;
 
 const Container = styled.div`
   @media only screen and (max-width: 1200px) {

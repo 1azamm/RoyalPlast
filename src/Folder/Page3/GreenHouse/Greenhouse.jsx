@@ -46,7 +46,7 @@ const Naves = () => {
           </span>
         </p>
 
-        <main className="flex flex-col gap-y-24">
+        <main className="flex flex-col lg:gap-y-24 md:gap-y-10 sm:gap-y-10 max-[640px]:gap-y-10">
           <Part1 />
           <Part2 />
           <Part3 />

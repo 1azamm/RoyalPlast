@@ -8,7 +8,7 @@ const Part3 = () => {
   const text = {
     uz: [
       "4 mm - derazalar yoki eshiklar ustidagi kanoplar kabi  kichik tuzilmalar uchun ishlatiladi.",
-      "6-8 mm - qor, yomg'ir va shamol yuklariga ta'sir qiladigan kattaroq tuzilmalar uchun javob beradi. Bu kanoplarning ko'pchiligi , masalan, avtomobillar, suzish havzalari uchun.",
+      "6-8 mm - qor, yomg'ir va shamol yuklariga ta'sir qiladigan kattaroq tuzilmalar uchun javob beradi. Bu kanoplarning ko'pchiligi, masalan, avtomobillar, suzish havzalari uchun.",
       "10 mm yoki undan ko'p - ekstremal ob-havo sharoitida ishlaydigan inshootlarni qurish uchun ishlatiladi.",
     ],
     ru: [
@@ -31,8 +31,8 @@ const Part3 = () => {
 
   return (
     <div className="flex justify-between items-start flex-wrap">
-      <div className="w-[48%]">
-        <h1 className="text-4xl mt-5 mb-8 font-medium underline decoration-[#77b94c] underline-offset-[14px]">
+      <div className="lg:w-[48%] md:w-[100%]">
+        <h1 className="text-4xl mt-5 mb-8 font-medium underline sm:mt-0 decoration-[#77b94c] underline-offset-[14px] max-[500px]:text-3xl max-[500px]:font-semibold max-[500px]:leading-[50px]">
           {language === "uz" ? "Qanday tanlash kerak?" : "Как выбрать?"}
         </h1>
         <div className="flex flex-col text-lg gap-y-5">
@@ -70,7 +70,11 @@ const Part3 = () => {
           </div>
         </div>
       </div>
-      <img className="w-[50%] pt-10 h-[500px]" src={choose} alt="" />
+      <img
+        className="lg:w-[50%] lg:pt-10 md:w-[100%] md:pt-5 h-[500px] max-[500px]:h-[300px]"
+        src={choose}
+        alt=""
+      />
     </div>
   );
 };

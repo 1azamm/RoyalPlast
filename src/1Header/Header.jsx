@@ -2,8 +2,6 @@ import React, { useEffect, useState, useContext } from "react";
 import { LocalizationApi } from "../Context/Language";
 import "./Header.css";
 import icon from "../assets/logotip/s_header__logo.svg";
-import sun from "../assets/dark-mode/sun.png";
-import moon from "../assets/dark-mode/moon.png";
 
 import { AlignLeftOutlined, AlignRightOutlined } from "@ant-design/icons";
 import { Button } from "antd";
@@ -36,18 +34,6 @@ const Header = () => {
 
   const handleLanguageChange = (e) => {
     setLanguage(e.target.value);
-  };
-
-  // Dark-mode
-  const toggleDarkMode = () => {
-    const body = document.querySelector(".body");
-    const darkModeImages = document.querySelectorAll(".dark-mode img");
-
-    body.classList.toggle("darkmode");
-
-    darkModeImages.forEach((img) => {
-      img.classList.toggle("hidden");
-    });
   };
 
   // Network-href
@@ -128,10 +114,6 @@ const Header = () => {
             <option value="uz">UZ</option>
             <option value="ru">RU</option>
           </select>
-          <div className="dark-mode" onClick={toggleDarkMode}>
-            <img src={sun} alt="" />
-            <img src={moon} alt="" />
-          </div>
           <div className="menu">
             <Button className="btn" type="primary" onClick={handleClick}>
               {collapsed ? <AlignLeftOutlined /> : <AlignRightOutlined />}

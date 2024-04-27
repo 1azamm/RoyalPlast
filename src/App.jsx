@@ -11,6 +11,9 @@ import Naves from "./Folder/Page3/Naves/Naves";
 import Greenhouse from "./Folder/Page3/GreenHouse/Greenhouse";
 import styled from "styled-components";
 import { BounceLoader } from "react-spinners";
+import Gazebos from "./Folder/Page3/Gazebos/Gazebos";
+import Obstacles from "./Folder/Page3/Obstacles/Obstacles";
+import Agriculture from "./Folder/Page3/Agriculture/Agriculture";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -39,6 +42,9 @@ const App = () => {
               <Route path="/accessories/" element={<Accessroies />} />
               <Route path="/naveslar/" element={<Naves />} />
               <Route path="/issiqxonalar/" element={<Greenhouse />} />
+              <Route path="/gazebos/" element={<Gazebos />} />
+              <Route path="/tosiqlar/" element={<Obstacles />} />
+              <Route path="/qishloq-xojaligi/" element={<Agriculture />} />
             </Route>
           </Routes>
           <Footer />

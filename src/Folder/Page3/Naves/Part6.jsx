@@ -4,6 +4,7 @@ import img1 from "../../../LexanTovar/orec1.png";
 import img2 from "../../../LexanTovar/orec2.png";
 import img3 from "../../../LexanTovar/orec3.png";
 import img4 from "../../../LexanTovar/orec4.png";
+import styled from "styled-components";
 
 const Part6 = () => {
   const { language } = useContext(LocalizationApi);
@@ -40,21 +41,66 @@ const Part6 = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-[30px] w-[60%] mt-5 mb-8 text-center font-medium">
+      <H1 className="text-[30px] lg:w-[60%] mt-5 mb-8 text-center font-medium max-[500px]:text-3xl max-[500px]:font-semibold max-[500px]:leading-[35px] ">
         {language === "uz"
           ? "Shuningdek, agar arxitektura loyihasida oynaning shaffofligi muhim bo'lsa, biz quyidagilarni tavsiya qilamiz:"
           : "Поэтому если в архитектурном проекте важна прозрачность остекления мы рекомендуем:"}
-      </h1>
-      <div className="flex justify-between mt-10 gap-y-5">
+      </H1>
+      <ContentContainer className="flex justify-between md:flex-wrap sm:flex-wrap mt-10 gap-y-5">
         {Content.map((item, i) => (
-          <div className="w-[20%] flex flex-col items-center gap-y-5" key={i}>
-            <img src={item.img} width="110px" />
+          <Contentt
+            className="lg:w-[20%] md:w-[48%] sm:w-[45%] flex flex-col items-center gap-y-5"
+            key={i}
+          >
+            <Img className="xl:w-[110px] " src={item.img} />
             <p className="text-sm text-center">{item.p}</p>
-          </div>
+          </Contentt>
         ))}
-      </div>
+      </ContentContainer>
     </div>
   );
 };
 
 export default Part6;
+
+const H1 = styled.h1`
+  @media only screen and (max-width: 640px) {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  @media only screen and (max-width: 500px) {
+    font-size: 20px;
+  }
+`;
+
+const ContentContainer = styled.div`
+  @media only screen and (max-width: 640px) {
+    flex-wrap: wrap;
+    row-gap: 50px;
+  }
+  @media only screen and (max-width: 600px) {
+    flex-wrap: wrap;
+    row-gap: 50px;
+  }
+`;
+
+const Contentt = styled.div`
+  @media only screen and (max-width: 640px) {
+    width: 48%;
+  }
+  @media only screen and (max-width: 600px) {
+    width: 45%;
+  }
+  @media only screen and (max-width: 500px) {
+    width: 100%;
+  }
+`;
+
+const Img = styled.img`
+  @media only screen and (max-width: 600px) {
+    width: 80px;
+  }
+  @media only screen and (max-width: 500px) {
+    width: 100px;
+  }
+`;

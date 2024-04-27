@@ -7,8 +7,8 @@ const Par1 = () => {
   return (
     <>
       <div className="flex justify-between flex-wrap">
-        <div className="w-[48%]">
-          <h1 className="text-4xl mt-5 mb-8 font-medium underline decoration-[#77b94c] underline-offset-[14px]">
+        <div className="lg:w-[48%] md:w-[100%] md:pb-5 sm:pb-5 max-[640px]:pb-5">
+          <h1 className="text-4xl mt-5 mb-8 font-medium underline decoration-[#77b94c] underline-offset-[14px] max-[500px]:text-3xl max-[500px]:font-semibold max-[500px]:leading-[50px]">
             {language === "uz"
               ? "Naveslar uchun polikarbonat"
               : "Поликарбонат для навесов"}
@@ -24,7 +24,7 @@ const Par1 = () => {
               : "Навесы из поликарбоната – одна из самых распространенных конструкций. Они защищают от дождя, снега, ветра, солнца. Устанавливается на парковках, в жилых и промышленных зданиях. Благодаря гибкости, разнообразию цветов и типов полимерных плит реализуются различные дизайнерские решения."}
           </p>
         </div>
-        <img className="w-[50%]" src={naves} alt="" />
+        <img className="lg:w-[50%] md:w-[100%]" src={naves} alt="" />
       </div>
     </>
   );

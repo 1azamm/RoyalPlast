@@ -22,14 +22,18 @@ const Part5 = () => {
 
   return (
     <div>
-      <h1 className="text-[40px] mt-5 mb-8 text-center font-semibold underline decoration-[#77b94c] underline-offset-[14px]">
+      <h1 className="text-[40px] mt-5 mb-8 text-center font-semibold underline decoration-[#77b94c] underline-offset-[14px] max-[500px]:text-3xl max-[500px]:font-semibold max-[500px]:leading-[50px] ">
         {language === "uz"
           ? "Dizaynerlar uchun umumiy tavsiyalar"
           : "Общие рекомендации проектировщикам"}
       </h1>
-      <div className="flex justify-between items-center pt-5">
-        <img className="w-[50%]" src={designer} alt="" />
-        <ul className="w-[48%] flex flex-col text-base gap-y-7">
+      <div className="flex justify-between items-center md:flex-wrap sm:flex-wrap max-[640px]:flex-wrap pt-5">
+        <img
+          className="lg:w-[50%] md:w-[100%] md:pb-7 sm:w-[100%] sm:pb-7 max-[640px]:w-[100%] max-[640px]:pb-7"
+          src={designer}
+          alt=""
+        />
+        <ul className="lg:w-[48%] md:w-[100%] sm:w-[100%] flex flex-col text-base gap-y-7">
           {texts.map((paragraph, index) => (
             <li key={index}>{paragraph}</li>
           ))}

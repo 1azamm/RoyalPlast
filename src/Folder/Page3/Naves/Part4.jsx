@@ -7,10 +7,14 @@ const Part3 = () => {
   const { language } = useContext(LocalizationApi);
 
   return (
-    <div className="flex justify-between items-start flex-wrap">
-      <img className="w-[50%] h-[400px]" src={color} alt="" />
-      <div className="w-[48%]">
-        <h1 className="text-4xl mb-8 font-medium underline decoration-[#77b94c] underline-offset-[14px]">
+    <div className="flex justify-between lg:flex-row md:flex-col-reverse sm:flex-col-reverse max-[640px]:flex-col-reverse items-start flex-wrap">
+      <img
+        className="lg:w-[50%] lg:h-[400px] md:w-[100%] md:pt-5 sm:pt-5 md:h-[500px] max-[640px]:pt-5 "
+        src={color}
+        alt=""
+      />
+      <div className="lg:w-[48%] md:w-[100%]">
+        <h1 className="text-4xl mb-8 font-medium underline decoration-[#77b94c] underline-offset-[14px] max-[500px]:text-3xl max-[500px]:font-semibold max-[500px]:leading-[50px]">
           {language === "uz"
             ? "Rangni qanday tanlash mumkin?"
             : "Как сделать цветным?"}

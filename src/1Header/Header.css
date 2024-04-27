@@ -24,26 +24,6 @@
   --popupText: #ffffff;
 }
 
-.dark-mode img:nth-child(1) {
-  display: block;
-}
-
-.dark-mode img:nth-child(2) {
-  display: none;
-}
-
-.darkmode .dark-mode img:nth-child(1) {
-  display: none;
-}
-
-.darkmode .dark-mode img:nth-child(2) {
-  display: block;
-}
-
-.hidden {
-  display: none;
-}
-
 body {
   background: var(--bg-color);
 }
@@ -89,7 +69,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: border1 1s ease-in-out infinite;
+    animation: border1 1s ease-in-out alternate infinite;
     border-radius: 10px;
 
     .nomer2 {
@@ -179,7 +159,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: border1 1s ease-in-out infinite;
+  animation: border1 1s ease-in-out alternate infinite;
   border-radius: 30px;
   .nomer1 {
     border: none;
@@ -241,6 +221,9 @@ body {
 @media only screen and (max-width: 550px) {
   .containerNomer2 {
     width: 180px !important;
+    .nomer2 {
+      width: 180px !important;
+    }
   }
   .nomer2 {
     font-size: 15px !important;
@@ -251,56 +234,24 @@ body {
   .Background {
     padding: 5px 0;
   }
+}
+@media only screen and (max-width: 430px) {
+  .containerNomer2 {
+    width: 160px !important;
+    .nomer2 {
+      font-size: 13px !important;
+      width: 160px !important;
+    }
+  }
+}
+@media only screen and (max-width: 412px) {
+  .flexItem {
+    column-gap: 10px;
+    padding-right: 15px;
+  }
+}
+@media only screen and (max-width: 370px) {
   .containerNomer2 {
     display: none;
   }
 }
-
-/* 
-.head {
-  display: flex;
-  background: var(--head);
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 8px;
-  position: fixed !important;
-  width: 90%;
-  padding: 10px 0;
-  background-color: var(--headFixed);
-}
-.head.fixed {
-  background-color: var(--headFixed);
-}
-
-.flexItem {
-  display: flex;
-  align-items: center;
-  column-gap: 20px;
-  padding-right: 20px;
-}
-
-}
-
-
-
-.headText {
-  display: flex;
-  column-gap: 20px;
-  color: var(--textcolor);
-
-  p {
-    font-weight: 600;
-  }
-}
-
-
-
-
-
-
-
-.popup-menu {
-  display: none;
-}
-
- */

@@ -18,22 +18,15 @@ const Part3 = () => {
     ],
   };
 
-  const text2 = {
-    uz: [
-      "Kelajakdagi binoning parametrlari va konfiguratsiyasi - bunga asoslanib, polimer qatlamining turi va uning o'lchami tanlanadi. Kemerli tuzilmalar uchun uyali polikarbonat qulayroqdir, chunki butun uzunligi bo'ylab yaxshi egiladi.",
-      "Tomning burchagi - qanchalik kichik bo'lsa, panel qalinroq bo'lishi kerak, chunki u qor yoki to'plangan suvning ko'proq og'irligiga bardosh berishi kerak. Yupqa choyshablar uchun qo'shimcha ko'priklar qo'shilishi kerak.",
-    ],
-    ru: [
-      "Параметры и конфигурация будущей постройки — исходя из этого подбирается вид полимерного листа, его размер. Для арочных конструкций удобнее сотовый поликарбонат, т.к. он хорошо сгибается по всей длине.",
-      "Угол наклона кровли — чем он меньше, тем толще должна быть панель, потому что ей необходимо выдерживать больший вес снега или скопившейся воды. Для тонких листов следует добавлять дополнительные перемычки.",
-    ],
-  };
-
   return (
-    <div className="flex justify-between items-start flex-wrap">
-      <img className="w-[50%] h-[460px]" src={choose} alt="" />
-      <div className="w-[48%]">
-        <h1 className="text-4xl mb-8 font-medium underline decoration-[#77b94c] underline-offset-[14px]">
+    <div className="flex justify-between lg:flex-row md:flex-col-reverse sm:flex-col-reverse max-[640px]:flex-col-reverse flex-wrap">
+      <img
+        className="lg:w-[50%] md:w-[100%] md:pt-5 h-[460px] sm:pt-5 max-[640px]:pt-5 max-[600px]:h-[300px]"
+        src={choose}
+        alt=""
+      />
+      <div className="lg:w-[48%] md:w-[100%]">
+        <h1 className="text-4xl mb-8 font-medium underline decoration-[#77b94c] underline-offset-[14px] max-[615px]:leading-[52px] max-[500px]:text-3xl max-[500px]:font-semibold max-[500px]:leading-[55px]">
           {language === "uz"
             ? "Qanday qilib xavfsiz o'rnatish kerak?"
             : "Как крепить и перевозить?"}

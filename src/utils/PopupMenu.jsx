@@ -47,7 +47,7 @@ const PopupMenu = ({ modal, setModal }) => {
       {modal && (
         <div className="modal2 z-[555]">
           <div className="overlay2" onClick={() => setModal(false)}></div>
-          <div className={`popup-menu ${!modal ? "nonActive" : ""}`}>
+          <div className={`popup-menu ${modal ? "activee" : "nonActivee"}`}>
             <div className="text2">
               <Link
                 to="page1"
