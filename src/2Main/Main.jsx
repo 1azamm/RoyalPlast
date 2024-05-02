@@ -21,7 +21,7 @@ const Main = () => {
           <div className="Dark ">
             <Page2 />
           </div>
-          <Page3 />
+          <Page3 id="page3" />
           <Page4 />
         </div>
         <Page5 />

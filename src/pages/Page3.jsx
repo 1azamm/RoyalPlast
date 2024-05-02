@@ -54,13 +54,16 @@ const images = [
   },
 ];
 
-const Page3 = () => {
+const Page3 = ({ id }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const { language } = useContext(LocalizationApi);
 
   return (
     // <Slide bottom>
-    <CONTAINER className="px-8 py-10 bg-gradient-to-t from-sky-100 to-rgb(237, 244, 247)">
+    <CONTAINER
+      id={id}
+      className="px-8 py-10 bg-gradient-to-t from-sky-100 to-rgb(237, 244, 247)"
+    >
       <Title
         position={
           "text-center mb-20 pt-16 underline decoration-[#77b94c] underline-offset-[14px] leading-[50px]"

@@ -161,6 +161,7 @@ const HomeProfiled = () => {
         </ul>
       </div>
       <Write
+        position="max-[412px]:text-[24px]"
         text={
           language === "uz" ? "Distribyutorga aylaning" : "Стань дистрибьютором"
         }

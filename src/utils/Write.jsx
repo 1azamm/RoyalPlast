@@ -6,7 +6,7 @@ import "../Styles/Write.css";
 
 import x from "../assets/imgs/x.png";
 
-const Write = ({ text, modal, setModal }) => {
+const Write = ({ text, modal, setModal, position }) => {
   const { language } = useContext(LocalizationApi);
 
   const [messageApi, contextHolder] = message.useMessage();
@@ -87,8 +87,8 @@ const Write = ({ text, modal, setModal }) => {
             >
               <img src={x} alt="" width="40px" />
             </button>
-            <div className="flex mt-5 flex-col items-center justify-center pt-2">
-              <h1 className="text-3xl font-medium">{text}</h1>
+            <div className="flex mt-5 flex-col items-center justify-center pt-5">
+              <h1 className={`text-3xl font-medium ${position}`}>{text}</h1>
               <p className="pText text-2xl text-center w-[80%] font-light pt-1">
                 {language === "uz"
                   ? " Kontaktlaringizni qoldiring va bizning mutaxassisimiz siz bilan bog'lanadi:"

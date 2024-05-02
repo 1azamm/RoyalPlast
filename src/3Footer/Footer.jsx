@@ -4,33 +4,45 @@ import telegram from "../assets/network/tg.png";
 import instagram from "../assets/network/insta.png";
 import facebook from "../assets/network/facebook.png";
 import gmail from "../assets/network/gmail.png";
+import { Link } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 
 import { LocalizationApi } from "../Context/Language";
 import styled from "styled-components";
-import "./Footer.css";
 
 const Footer = () => {
-  //Language
   const { language } = useContext(LocalizationApi);
-  //Language
 
-  //Network-href
-  const handlePhoneNumberClick = (i) => {
-    let url = "";
-    switch (i) {
-      case 0:
-        url = "tel:+998950000044";
-        break;
-      case 1:
-        url = "tel:+998957000044";
-        break;
-      default:
-        break;
-    }
+  const phoneNumbers = [
+    { number: "+998 95 000 00 44", href: "tel:+998950000044" },
+    { number: "+998 95 700 00 44", href: "tel:+998957000044" },
+  ];
+
+  const PhoneButton = ({ number, href }) => {
+    const handleMouseOver = (e) => {
+      e.currentTarget.style.filter = "drop-shadow(0 0 10px rgb(0, 170, 255))";
+    };
+
+    const handleMouseOut = (e) => {
+      e.currentTarget.style.filter = "none";
+    };
+
+    return (
+      <button
+        className="text-xl hover:text-blue-700 pt-2"
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+        onClick={() => window.open(href)}
+      >
+        <a className="tel font-bold max-[1100px]:text-lg" href={href}>
+          {number}
+        </a>
+      </button>
+    );
   };
 
   const handleNetworkClick = (index) => {
-    let url = "";
+    let url;
     switch (index) {
       case 0:
         url = "https://t.me/leksan_nomer1";
@@ -49,123 +61,176 @@ const Footer = () => {
     }
 
     if (url) {
-      window.open(url);
+      window.location.href = url;
     }
   };
+
   const maps = () => {
     window.open("https://yandex.uz/maps/-/CDFufN~P", "_blank");
   };
-  //Network-href
+
+  const renderNetworkIcons = () => {
+    const networks = [
+      { src: telegram, index: 0 },
+      { src: instagram, index: 1 },
+      { src: gmail, index: 2 },
+      { src: facebook, index: 3 },
+    ];
+
+    return networks.map((network, index) => (
+      <img
+        key={index}
+        className="net w-10 cursor-pointer transition-transform active:scale-[1.2] hover:scale-[1.2] max-[1100px]:w-[33px]"
+        onMouseOver={(e) => {
+          e.currentTarget.style.filter =
+            "drop-shadow(0 0 10px rgba(0, 0, 0, 0.553))";
+        }}
+        onMouseOut={(e) => {
+          e.currentTarget.style.filter = "none";
+        }}
+        src={network.src}
+        onClick={() => handleNetworkClick(network.index)}
+      />
+    ));
+  };
+  const sections = [
+    {
+      title: (
+        <>
+          {window.location.pathname === "/" ? (
+            <Link
+              to="page2"
+              spy={true}
+              smooth={true}
+              offset={-105}
+              duration={500}
+              className="font-bold"
+            >
+              <h1 className="max-[520px]:text-base">Mahsulotlar</h1>
+            </Link>
+          ) : (
+            <RouterLink
+              to="/"
+              onClick={() => window.scrollTo({ top: 0, behavior: "auto" })}
+              className="font-bold"
+            >
+              <h1 className="max-[520px]:text-base">Mahsulotlar</h1>
+            </RouterLink>
+          )}
+        </>
+      ),
+      links: [
+        { label: "Uyali polikarbonat", to: "/cellular-polycarbonate/" },
+        { label: "Profillangan polikarbonat", to: "/profiled-polycarbonate" },
+        { label: "Aksesuarlar", to: "/accessories/" },
+        {
+          label: <h1 className="pt-7 max-[520px]:text-base">Manzil</h1>,
+          onClick: maps,
+        },
+      ],
+    },
+    {
+      title: (
+        <>
+          {window.location.pathname === "/" ? (
+            <Link
+              to="page3"
+              spy={true}
+              smooth={true}
+              offset={-20}
+              duration={500}
+              className="font-bold"
+            >
+              <h1 className="max-[520px]:text-base">Turlar</h1>
+            </Link>
+          ) : (
+            <RouterLink
+              to="/"
+              onClick={() => window.scrollTo({ top: 0, behavior: "auto" })}
+              className="font-bold"
+            >
+              <h1 className="max-[520px]:text-base">Turlar</h1>
+            </RouterLink>
+          )}
+        </>
+      ),
+      links: [
+        { label: "Naveslar", to: "/naveslar/" },
+        { label: "Issiqxonalar", to: "/issiqxonalar/" },
+        { label: "Gazebos", to: "/gazebos/" },
+        { label: "To'siqlar", to: "/tosiqlar/" },
+        { label: "Qishloq xo'jaligi", to: "/qishloq-xojaligi/" },
+      ],
+    },
+  ];
+
+  const renderLinks = (links) => {
+    return links.map((link, index) => {
+      if (link.onClick) {
+        return (
+          <h1
+            key={index}
+            onClick={link.onClick}
+            className="font-semibold text-lg cursor-pointer  text-blue-950 hover:text-blue-800"
+          >
+            {link.label}
+          </h1>
+        );
+      } else {
+        return (
+          <RouterLink
+            key={index}
+            to={link.to}
+            onClick={() => window.scrollTo({ top: 0, behavior: "auto" })}
+          >
+            <li
+              style={{ listStyle: "circle" }}
+              className="cursor-pointer list-outside text-blue-950 hover:text-blue-800  max-[520px]:text-sm "
+            >
+              {link.label}
+            </li>
+          </RouterLink>
+        );
+      }
+    });
+  };
+
   return (
     <>
-      <DIV
-        className="display flex items-center justify-between px-10 mx-5 rounded-t-xl  py-10 mt-20 bg-gray-100"
-        style={{ background: "" }}
+      <div
+        className="mt-16 mx-10 py-14 pr-5 flex justify-between items-center rounded-t-xl border-t-2 border-gray-500 max-[860px]:flex-wrap max-[860px]:pl-5 max-[550px]:mx-5"
+        style={{ backgroundColor: "rgb(242, 245, 250)" }}
       >
-        <IMG className=" w-80 cursor-pointer" src={footerLogo} alt="" />
-        <div className="mainText flex justify-center">
-          <H3
-            onClick={maps}
-            className="country relative -left-10 text-blue-700 text-2xl w-[65%] text-center cursor-pointer hover:text-blue-900"
-          >
-            {language === "uz"
-              ? "Toshkent shahar, Olmazor tumani, Qorasaroy ko'chasi, 326"
-              : "Город Ташкент, Алмазарский район, улица Карасарой, 326"}
-          </H3>
-        </div>
-        <div className="rightText flex flex-col items-center justify-center">
-          <div className="call flex flex-col pt-8">
-            <button
-              className="text-xl hover:text-blue-700"
-              onMouseOver={(e) => {
-                e.currentTarget.style.filter =
-                  "drop-shadow(0 0 10px rgb(0, 170, 255))";
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.filter = "none";
-              }}
-              onClick={() => handlePhoneNumberClick(0)}
-            >
-              <A className="tel font-bold" href="tel:+998909893111">
-                +998 95 000 00 44
-              </A>
-            </button>
-            <button
-              className="text-xl hover:text-blue-700 pt-2"
-              onMouseOver={(e) => {
-                e.currentTarget.style.filter =
-                  "drop-shadow(0 0 10px rgb(0, 170, 255))";
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.filter = "none";
-              }}
-              onClick={() => handlePhoneNumberClick(1)}
-            >
-              <A className="tel font-bold" href="tel:+998889943111">
-                +998 95 700 00 44
-              </A>
-            </button>
-          </div>
-          <FlexImg className="flex-network flex  gap-x-2 pt-7">
-            <Img
-              className="net w-10 cursor-pointer transition-transform active:scale-[1.2] hover:scale-[1.2]"
-              onMouseOver={(e) => {
-                e.currentTarget.style.filter =
-                  "drop-shadow(0 0 10px rgba(0, 0, 0, 0.553))";
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.filter = "none";
-              }}
-              src={telegram}
-              onClick={() => handleNetworkClick(0)}
-              alt=""
-            />
+        <img
+          className="w-[400px] max-[1100px]:w-[250px] max-[860px]:w-[100%] "
+          src={footerLogo}
+          alt=""
+        />
+        <div className="flex gap-x-20 w-[40%] max-[860px]:pl-5 max-[860px]:pt-7 max-[860px]:w-[65%] max-[725px]:w-[100%] max-[860px]:pl-5 max-[725px]:justify-center max-[550px]:justify-between">
+          {sections.map((section, index) => (
+            <ul key={index} className="flex flex-col gap-y-2">
+              <RouterLink to="/">
+                <h1 className="font-semibold text-lg cursor-pointer text-blue-950 hover:text-blue-800">
+                  {section.title}
+                </h1>
+              </RouterLink>
 
-            <Img
-              className="net w-10 cursor-pointer transition-transform active:scale-[1.2] hover:scale-[1.2]"
-              onMouseOver={(e) => {
-                e.currentTarget.style.filter =
-                  "drop-shadow(0 0 10px rgba(0, 0, 0, 0.553))";
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.filter = "none";
-              }}
-              src={instagram}
-              onClick={() => handleNetworkClick(1)}
-              alt=""
-            />
-            <Img
-              className="net w-10 cursor-pointer transition-transform active:scale-[1.2] hover:scale-[1.2]"
-              onMouseOver={(e) => {
-                e.currentTarget.style.filter =
-                  "drop-shadow(0 0 10px rgba(0, 0, 0, 0.553))";
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.filter = "none";
-              }}
-              src={gmail}
-              onClick={() => handleNetworkClick(2)}
-              alt=""
-            />
-            <Img
-              className="net w-10 cursor-pointer transition-transform active:scale-[1.2] hover:scale-[1.2]"
-              onMouseOver={(e) => {
-                e.currentTarget.style.filter =
-                  "drop-shadow(0 0 10px rgba(0, 0, 0, 0.553))";
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.filter = "none";
-              }}
-              src={facebook}
-              onClick={() => handleNetworkClick(3)}
-              alt=""
-            />
-          </FlexImg>
+              {renderLinks(section.links)}
+            </ul>
+          ))}
         </div>
-      </DIV>
-      <div className="copyright bg-gray-100 mb-5 mx-5 rounded-b-lg ">
-        <HR className=" border-[0.7px] border-gray-300 mx-48"></HR>
-        <p className="copyright2 bg-gray-100 text-[13px] text-center py-2 rounded-b-lg">
+        <div className="flex flex-col max-[725px]:pt-7 max-[725px]:justify-center max-[725px]:w-[100%]">
+          {phoneNumbers.map((phoneNumber, index) => (
+            <PhoneButton key={index} {...phoneNumber} />
+          ))}
+          <div className="flex justify-between pt-7 max-[725px]:justify-center max-[725px]:gap-x-3">
+            {renderNetworkIcons()}
+          </div>
+        </div>
+      </div>
+      <div className=" bg-gray-100 mb-5 mx-10 rounded-b-lg max-[550px]:mx-5 ">
+        <hr className=" border-[0.7px] border-gray-300 mx-20"></hr>
+        <p className="copyright2 bg-gray-100 text-[13px] text-center py-2 rounded-b-xl border-b-2 border-gray-500 max-[550px]:text-[10px]">
           {language === "uz" ? (
             <>
               © 2024 uzLexan.uz
@@ -196,93 +261,8 @@ const Footer = () => {
 
 export default Footer;
 
-const DIV = styled.div`
-  @media only screen and (max-width: 650px) {
+const Container = styled.div`
+  @media only screen and(max-width: 860px) {
     flex-wrap: wrap;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-`;
-
-const IMG = styled.img`
-  @media only screen and (max-width: 1100px) {
-    width: 25%;
-    padding-bottom: 20px;
-  }
-  @media only screen and (max-width: 650px) {
-    width: 65%;
-    display: flex;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-`;
-
-const H3 = styled.h3`
-  @media only screen and (max-width: 1150px) {
-    font-size: 20px;
-  }
-  @media only screen and (max-width: 650px) {
-    font-size: 22px;
-    width: 100%;
-    position: relative;
-    left: 0;
-  }
-  @media only screen and (max-width: 430px) {
-    font-size: 21px;
-    width: 100%;
-    position: relative;
-    left: 0;
-  }
-`;
-
-const A = styled.a`
-  @media only screen and (max-width: 1250px) {
-    font-size: 17px;
-  }
-  @media only screen and (max-width: 1150px) {
-    font-size: 16px;
-  }
-  @media only screen and (max-width: 1000px) {
-    font-size: 14px;
-  }
-  @media only screen and (max-width: 650px) {
-    font-size: 20px;
-  }
-`;
-
-const FlexImg = styled.div`
-  @media only screen and (max-width: 1150px) {
-    position: relative;
-    right: 30px;
-  }
-  @media only screen and (max-width: 850px) {
-    position: relative;
-    right: 40px;
-  }
-  @media only screen and (max-width: 750px) {
-    position: relative;
-    right: 60px;
-  }
-  @media only screen and (max-width: 650px) {
-    position: relative;
-    left: 0;
-  }
-  @media only screen and (max-width: 430px) {
-    position: relative;
-    left: 0;
-  }
-`;
-
-const Img = styled.img`
-  @media only screen and (max-width: 1000px) {
-    width: 35px !important;
-  }
-`;
-
-const HR = styled.p`
-  @media only screen and (max-width: 650px) {
-    width: 80%;
-    margin: 0 auto;
   }
 `;

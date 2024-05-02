@@ -110,7 +110,7 @@ const PopupMenu = ({ modal, setModal }) => {
             <div className="h-[200px] flex items-center">
               <div className="animation3">
                 <button className="nomer3" onClick={handlePhoneNumberClick}>
-                  <a href="tel:+998909893111">+998 95 000-00-44</a>
+                  <a href="tel:+998950000044">+998 95 000-00-44</a>
                 </button>
               </div>
             </div>
