@@ -47,6 +47,9 @@ const Header = () => {
     setCollapsed(!collapsed);
   };
 
+  //Visible Menu
+  const [submenuActive, setSubmenuActive] = useState(false);
+
   return (
     <>
       <div
@@ -79,11 +82,47 @@ const Header = () => {
               offset={-105}
               duration={500}
               className="btn1 font-bold"
+              onMouseEnter={() => setSubmenuActive(true)}
             >
               <RouterLink to="/">
                 {language === "uz" ? "MAHSULOTLAR" : "ТОВАРЫ"}
               </RouterLink>
             </Link>
+            <ul
+              onMouseLeave={() => setSubmenuActive(false)}
+              className={`left-[95px] font-medium flex flex-col  z-10  ${
+                submenuActive ? "active" : ""
+              }`}
+              id="submenu"
+            >
+              <RouterLink to="/cellular-polycarbonate/">
+                <li
+                  onClick={() => window.scrollTo({ top: 0, behavior: "auto" })}
+                >
+                  {language === "uz"
+                    ? "Uyali Polikarbonat"
+                    : "Сотовый поликарбонат"}
+                </li>
+              </RouterLink>
+              <hr className="border-1 border-purple-700" />
+              <RouterLink to="/profiled-polycarbonate">
+                <li
+                  onClick={() => window.scrollTo({ top: 0, behavior: "auto" })}
+                >
+                  {language === "uz"
+                    ? "Profillangan polikarbonat"
+                    : "Профилированный поликарбонат"}
+                </li>
+              </RouterLink>
+              <hr className="border-1 border-purple-700" />
+              <RouterLink to="/accessories/">
+                <li
+                  onClick={() => window.scrollTo({ top: 0, behavior: "auto" })}
+                >
+                  {language === "uz" ? "Aksessuarlar" : "Аксессуары"}
+                </li>
+              </RouterLink>
+            </ul>
             <Link
               to="page4"
               spy={true}

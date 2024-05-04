@@ -14,7 +14,8 @@
   height: 90vh;
   padding-top: 80px;
   width: 78%;
-  background-color: var(--popupMenu);
+  background-color: rgb(233, 236, 252);
+  border: 1px solid var(--textcolor);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,6 +51,29 @@
     transform: translateX(1000px);
     opacity: 0.1;
   }
+}
+
+#submenu2 {
+  position: absolute;
+  top: 400px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, top 0.3s ease;
+  background: var(--head);
+  filter: drop-shadow(0 0 10px rgba(55, 55, 55, 0.476));
+  li {
+    padding: 5px;
+  }
+}
+
+#submenu2.active {
+  opacity: 1;
+  visibility: visible;
+  top: 320px;
+}
+
+#submenu2 li:hover {
+  background-color: rgba(0, 174, 255, 0.361);
 }
 
 .text2 {
@@ -144,7 +168,8 @@
 @media only screen and (max-width: 450px) {
   .popup-menu {
     width: 75%;
-    height: 92vh;
+    height: 90vh;
+    top: 80px;
   }
 }
 @media only screen and (max-width: 429px) {
@@ -155,11 +180,12 @@
 @media only screen and (max-width: 400px) {
   .popup-menu {
     width: 72%;
-    height: 91vh;
+    height: 90vh !important;
   }
 }
 @media only screen and (max-width: 380px) {
   .popup-menu {
     width: 71%;
+    height: 87vh !important;
   }
 }

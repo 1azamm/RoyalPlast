@@ -1,6 +1,7 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { LocalizationApi } from "../Context/Language";
 import { Link } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 import telegram from "../assets/network/tg.png";
 import instagram from "../assets/network/insta.png";
 import facebook from "../assets/network/facebook.png";
@@ -42,6 +43,9 @@ const PopupMenu = ({ modal, setModal }) => {
     }
   };
 
+  //Visible Menu
+  const [submenuActive, setSubmenuActive] = useState(false);
+
   return (
     <div>
       {modal && (
@@ -66,9 +70,53 @@ const PopupMenu = ({ modal, setModal }) => {
                 offset={-105}
                 duration={500}
                 className={`btn1 prgrf font-bold`}
+                onMouseEnter={() => setSubmenuActive(true)}
               >
                 {language === "uz" ? "MAHSULOTLAR" : "ТОВАРЫ"}
               </Link>
+
+              <ul
+                onMouseLeave={() => setSubmenuActive(false)}
+                className={`m-auto font-medium flex flex-col  z-10  ${
+                  submenuActive ? "active" : ""
+                }`}
+                id="submenu2"
+              >
+                <RouterLink to="/cellular-polycarbonate/">
+                  <li
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "auto" })
+                    }
+                  >
+                    {language === "uz"
+                      ? "Uyali Polikarbonat"
+                      : "Сотовый поликарбонат"}
+                  </li>
+                </RouterLink>
+                <hr className="border-1 border-purple-700" />
+                <RouterLink to="/profiled-polycarbonate">
+                  <li
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "auto" })
+                    }
+                  >
+                    {language === "uz"
+                      ? "Profillangan polikarbonat"
+                      : "Профилированный поликарбонат"}
+                  </li>
+                </RouterLink>
+                <hr className="border-1 border-purple-700" />
+                <RouterLink to="/accessories/">
+                  <li
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "auto" })
+                    }
+                  >
+                    {language === "uz" ? "Aksessuarlar" : "Аксессуары"}
+                  </li>
+                </RouterLink>
+              </ul>
+
               <Link
                 to="page4"
                 spy={true}

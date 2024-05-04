@@ -11,19 +11,6 @@
   --popupText: #062a4d;
 }
 
-.darkmode {
-  --head: rgba(80, 80, 80, 0.634);
-  --headFixed: rgba(80, 80, 80, 0.779);
-  --bg-color: rgb(0, 0, 0);
-  --textcolor: white;
-  --btnActive: rgb(226, 224, 224);
-  --languageColor: rgb(70, 137, 245);
-  --borderFrom: rgba(255, 255, 255, 0.905);
-  --borderTo: rgba(158, 158, 158, 0.727);
-  --popupMenu: rgba(56, 56, 56, 0.82);
-  --popupText: #ffffff;
-}
-
 body {
   background: var(--bg-color);
 }
@@ -62,6 +49,29 @@ body {
     font-weight: 600;
   }
 }
+#submenu {
+  position: absolute;
+  top: 100px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, top 0.3s ease;
+  background: var(--head);
+  filter: drop-shadow(0 0 10px rgba(55, 55, 55, 0.476));
+  li {
+    padding: 5px;
+  }
+}
+
+#submenu.active {
+  opacity: 1;
+  visibility: visible;
+  top: 40px;
+}
+
+#submenu li:hover {
+  background-color: rgba(0, 174, 255, 0.361);
+}
+
 .containerNomer2 {
   display: none;
 

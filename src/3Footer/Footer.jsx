@@ -102,11 +102,13 @@ const Footer = () => {
               to="page2"
               spy={true}
               smooth={true}
-              offset={-105}
+              offset={-80}
               duration={500}
               className="font-bold"
             >
-              <h1 className="max-[520px]:text-base">Mahsulotlar</h1>
+              <h1 className="max-[520px]:text-base">
+                {language === "uz" ? "Mahsulotlar" : "Продукты"}
+              </h1>
             </Link>
           ) : (
             <RouterLink
@@ -114,17 +116,44 @@ const Footer = () => {
               onClick={() => window.scrollTo({ top: 0, behavior: "auto" })}
               className="font-bold"
             >
-              <h1 className="max-[520px]:text-base">Mahsulotlar</h1>
+              <h1 className="max-[520px]:text-base">
+                {language === "uz" ? "Mahsulotlar" : "Продукты"}
+              </h1>
             </RouterLink>
           )}
         </>
       ),
       links: [
-        { label: "Uyali polikarbonat", to: "/cellular-polycarbonate/" },
-        { label: "Profillangan polikarbonat", to: "/profiled-polycarbonate" },
-        { label: "Aksesuarlar", to: "/accessories/" },
         {
-          label: <h1 className="pt-7 max-[520px]:text-base">Manzil</h1>,
+          label: (
+            <>
+              {language === "uz"
+                ? "Uyali Polikarbonat"
+                : "Сотовый поликарбонат"}
+            </>
+          ),
+          to: "/cellular-polycarbonate/",
+        },
+        {
+          label: (
+            <>
+              {language === "uz"
+                ? "Profillangan polikarbonat"
+                : "Профилированный поликарбонат"}
+            </>
+          ),
+          to: "/profiled-polycarbonate",
+        },
+        {
+          label: <>{language === "uz" ? "Aksessuarlar" : "Аксессуары"}</>,
+          to: "/accessories/",
+        },
+        {
+          label: (
+            <h1 className="pt-7 max-[520px]:text-base">
+              {language === "uz" ? "Manzil" : "Адрес"}
+            </h1>
+          ),
           onClick: maps,
         },
       ],
@@ -141,7 +170,9 @@ const Footer = () => {
               duration={500}
               className="font-bold"
             >
-              <h1 className="max-[520px]:text-base">Turlar</h1>
+              <h1 className="max-[520px]:text-base">
+                {language === "uz" ? "Turlar" : "Типы"}
+              </h1>
             </Link>
           ) : (
             <RouterLink
@@ -149,17 +180,38 @@ const Footer = () => {
               onClick={() => window.scrollTo({ top: 0, behavior: "auto" })}
               className="font-bold"
             >
-              <h1 className="max-[520px]:text-base">Turlar</h1>
+              <h1 className="max-[520px]:text-base">
+                {language === "uz" ? "Turlar" : "Типы"}
+              </h1>
             </RouterLink>
           )}
         </>
       ),
       links: [
-        { label: "Naveslar", to: "/naveslar/" },
-        { label: "Issiqxonalar", to: "/issiqxonalar/" },
-        { label: "Gazebos", to: "/gazebos/" },
-        { label: "To'siqlar", to: "/tosiqlar/" },
-        { label: "Qishloq xo'jaligi", to: "/qishloq-xojaligi/" },
+        {
+          label: <>{language === "uz" ? "Naveslar" : "Нефы"}</>,
+          to: "/naveslar/",
+        },
+        {
+          label: <>{language === "uz" ? "Issiqxonalar" : "Теплицы"}</>,
+          to: "/issiqxonalar/",
+        },
+        {
+          label: <>{language === "uz" ? "Gazebos" : "Беседки"}</>,
+          to: "/gazebos/",
+        },
+        {
+          label: <>{language === "uz" ? "To'siqlar" : "Препятствия"}</>,
+          to: "/tosiqlar/",
+        },
+        {
+          label: (
+            <>
+              {language === "uz" ? "Qishloq xo'jaligi" : "Сельское хозяйство"}
+            </>
+          ),
+          to: "/qishloq-xojaligi/",
+        },
       ],
     },
   ];
