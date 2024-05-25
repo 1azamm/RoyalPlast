@@ -14,6 +14,7 @@ import { BounceLoader } from "react-spinners";
 import Gazebos from "./Folder/Page3/Gazebos/Gazebos";
 import Obstacles from "./Folder/Page3/Obstacles/Obstacles";
 import Agriculture from "./Folder/Page3/Agriculture/Agriculture";
+import Contact from "./Folder/Contact";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -36,6 +37,7 @@ const App = () => {
           <Routes>
             <Route>
               <Route exact path="/" element={<Main />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/more-info/" element={<More />} />
               <Route path="/cellular-polycarbonate/" element={<Cellular />} />
               <Route path="/profiled-polycarbonate/" element={<Profiled />} />

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import Button from "./Button";
 import { LocalizationApi } from "../Context/Language";
-import { message, Space } from "antd";
+import { message } from "antd";
 import "../Styles/Write.css";
 
 import x from "../assets/imgs/x.png";
@@ -60,7 +60,6 @@ const Write = ({ text, modal, setModal, position }) => {
       },
       (error) => {
         alert("Message not sent!");
-        console.log(error);
       }
     );
   };

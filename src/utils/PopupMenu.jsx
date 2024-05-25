@@ -116,7 +116,6 @@ const PopupMenu = ({ modal, setModal }) => {
                   </li>
                 </RouterLink>
               </ul>
-
               <Link
                 to="page4"
                 spy={true}
@@ -125,7 +124,9 @@ const PopupMenu = ({ modal, setModal }) => {
                 duration={500}
                 className={`btn1 prgrf font-bold`}
               >
-                {language === "uz" ? "ALOQA" : "КОНТАКТЫ"}
+                <RouterLink to="/contact">
+                  {language === "uz" ? "ALOQA" : "КОНТАКТЫ"}
+                </RouterLink>
               </Link>
               <select
                 className="language"

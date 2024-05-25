@@ -72,7 +72,18 @@ const Header = () => {
               className="btn1 font-bold"
             >
               <RouterLink to="/">
-                {language === "uz" ? "BOSH SAHIFA" : "ГЛАВНАЯ"}
+                <li
+                  className="list-none"
+                  onClick={() =>
+                    window.scrollTo(
+                      window.location.pathname === "/"
+                        ? { top: 0, behavior: "smooth" }
+                        : { top: 0, behavior: "auto" }
+                    )
+                  }
+                >
+                  {language === "uz" ? "BOSH SAHIFA" : "ГЛАВНАЯ"}
+                </li>
               </RouterLink>
             </Link>
             <Link
@@ -90,7 +101,7 @@ const Header = () => {
             </Link>
             <ul
               onMouseLeave={() => setSubmenuActive(false)}
-              className={`left-[95px] font-medium flex flex-col  z-10  ${
+              className={`left-[95px] font-medium flex flex-col rounded-sm z-10  ${
                 submenuActive ? "active" : ""
               }`}
               id="submenu"
@@ -127,12 +138,19 @@ const Header = () => {
               to="page4"
               spy={true}
               smooth={true}
-              offset={-105}
+              offset={0}
               duration={500}
               className="btn1 font-bold"
             >
-              <RouterLink to="/">
-                {language === "uz" ? "ALOQA" : "КОНТАКТЫ"}
+              <RouterLink to="/contact">
+                <li
+                  className="list-none"
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: "auto" });
+                  }}
+                >
+                  {language === "uz" ? "ALOQA" : "КОНТАКТЫ"}
+                </li>
               </RouterLink>
             </Link>
           </div>

@@ -249,7 +249,7 @@ const Footer = () => {
 
   return (
     <>
-      <div
+      <Container
         className="mt-16 mx-10 py-14 pr-5 flex justify-between items-center rounded-t-xl border-t-2 border-gray-500 max-[860px]:flex-wrap max-[860px]:pl-5 max-[550px]:mx-5"
         style={{ backgroundColor: "rgb(242, 245, 250)" }}
       >
@@ -258,7 +258,7 @@ const Footer = () => {
           src={footerLogo}
           alt=""
         />
-        <div className="flex gap-x-20 w-[40%] max-[860px]:pl-5 max-[860px]:pt-7 max-[860px]:w-[65%] max-[725px]:w-[100%] max-[860px]:pl-5 max-[725px]:justify-center max-[550px]:justify-between">
+        <div className="flex gap-x-20 w-[40%] max-[861px]:pl-5 max-[860px]:pt-7 max-[860px]:w-[65%] max-[725px]:w-[100%] max-[860px]:pl-5 max-[725px]:justify-center max-[550px]:justify-between">
           {sections.map((section, index) => (
             <ul key={index} className="flex flex-col gap-y-2">
               <RouterLink to="/">
@@ -279,8 +279,8 @@ const Footer = () => {
             {renderNetworkIcons()}
           </div>
         </div>
-      </div>
-      <div className=" bg-gray-100 mb-5 mx-10 rounded-b-lg max-[550px]:mx-5 ">
+      </Container>
+      <Container2 className=" bg-gray-100 mb-5 mx-10 rounded-b-lg max-[550px]:mx-5">
         <hr className=" border-[0.7px] border-gray-300 mx-20"></hr>
         <p className="copyright2 bg-gray-100 text-[13px] text-center py-2 rounded-b-xl border-b-2 border-gray-500 max-[550px]:text-[10px]">
           {language === "uz" ? (
@@ -306,7 +306,7 @@ const Footer = () => {
             </>
           )}
         </p>
-      </div>
+      </Container2>
     </>
   );
 };
@@ -314,7 +314,25 @@ const Footer = () => {
 export default Footer;
 
 const Container = styled.div`
-  @media only screen and(max-width: 860px) {
-    flex-wrap: wrap;
+  @media only screen and (max-width: 1200px) {
+    margin: 80px 40px 0 40px;
+  }
+  @media only screen and (max-width: 900px) {
+    margin: 80px 20px 0 20px;
+  }
+  @media only screen and (max-width: 430px) {
+    margin: 80px 10px 0 10px;
+  }
+`;
+
+const Container2 = styled.div`
+  @media only screen and (max-width: 1200px) {
+    margin: 0px 40px 20px 40px;
+  }
+  @media only screen and (max-width: 900px) {
+    margin: 0px 20px 10px 20px;
+  }
+  @media only screen and (max-width: 430px) {
+    margin: 0px 10px 10px 10px;
   }
 `;
